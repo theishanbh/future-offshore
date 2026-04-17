@@ -10,5 +10,7 @@ export const env = createEnv({
     SMTP_FROM: z.string().min(1),
     SMTP_TO: z.string().min(1),
   },
+  skipValidation: !!process.env.SKIP_ENV_VALIDATION,
+  skipValidation: !!process.env.SKIP_ENV_VALIDATION,
   experimental__runtimeEnv: {},
 })
