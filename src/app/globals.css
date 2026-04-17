@@ -2,48 +2,48 @@
 
 /* ── Montserrat Font Faces ── */
 @font-face {
-  font-family: 'Montserrat';
-  src: url('../fonts/Montserrat-Light.otf') format('opentype');
+  font-family: "Montserrat";
+  src: url("../fonts/Montserrat-Light.otf") format("opentype");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Montserrat';
-  src: url('../fonts/Montserrat-Regular.otf') format('opentype');
+  font-family: "Montserrat";
+  src: url("../fonts/Montserrat-Regular.otf") format("opentype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Montserrat';
-  src: url('../fonts/Montserrat-Medium.otf') format('opentype');
+  font-family: "Montserrat";
+  src: url("../fonts/Montserrat-Medium.otf") format("opentype");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Montserrat';
-  src: url('../fonts/Montserrat-SemiBold.otf') format('opentype');
+  font-family: "Montserrat";
+  src: url("../fonts/Montserrat-SemiBold.otf") format("opentype");
   font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Montserrat';
-  src: url('../fonts/Montserrat-ExtraBold.otf') format('opentype');
+  font-family: "Montserrat";
+  src: url("../fonts/Montserrat-ExtraBold.otf") format("opentype");
   font-weight: 800;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Montserrat';
-  src: url('../fonts/Montserrat-Black.otf') format('opentype');
+  font-family: "Montserrat";
+  src: url("../fonts/Montserrat-Black.otf") format("opentype");
   font-weight: 900;
   font-style: normal;
   font-display: swap;
@@ -75,11 +75,16 @@ html {
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 400;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: 900;
 }
 

@@ -1,9 +1,9 @@
-"use client";
+"use client"
 
-import { useState, useEffect } from "react";
-import Link from "next/link";
-import Image from "next/image";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion"
+import Image from "next/image"
+import Link from "next/link"
+import { useEffect, useState } from "react"
 
 const navLinks = [
   { name: "Home", href: "/" },
@@ -11,35 +11,33 @@ const navLinks = [
   { name: "About", href: "/about" },
   { name: "Projects", href: "/projects" },
   { name: "Contact", href: "/contact" },
-];
+]
 
 export default function Header() {
-  const [scrolled, setScrolled] = useState(false);
-  const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false)
+  const [mobileOpen, setMobileOpen] = useState(false)
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+    const onScroll = () => setScrolled(window.scrollY > 50)
+    window.addEventListener("scroll", onScroll, { passive: true })
+    return () => window.removeEventListener("scroll", onScroll)
+  }, [])
 
   // Lock body scroll when mobile menu is open
   useEffect(() => {
-    document.body.style.overflow = mobileOpen ? "hidden" : "";
+    document.body.style.overflow = mobileOpen ? "hidden" : ""
     return () => {
-      document.body.style.overflow = "";
-    };
-  }, [mobileOpen]);
+      document.body.style.overflow = ""
+    }
+  }, [mobileOpen])
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-white shadow-md"
-          : "bg-transparent"
+      className={`fixed top-0 right-0 left-0 z-50 transition-all duration-300 ${
+        scrolled ? "bg-white shadow-md" : "bg-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16 md:h-20">
+      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 md:h-20 lg:px-8">
         {/* Logo */}
         <Link href="/" className="relative shrink-0">
           <Image
@@ -53,15 +51,15 @@ export default function Header() {
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden items-center gap-8 md:flex">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="relative text-sm font-semibold text-navy tracking-wide uppercase group"
+              className="text-navy group relative text-sm font-semibold tracking-wide uppercase"
             >
               {link.name}
-              <span className="absolute left-0 -bottom-1 h-0.5 w-0 gradient-bg transition-all duration-300 group-hover:w-full" />
+              <span className="gradient-bg absolute -bottom-1 left-0 h-0.5 w-0 transition-all duration-300 group-hover:w-full" />
             </Link>
           ))}
         </nav>
@@ -70,21 +68,21 @@ export default function Header() {
         <button
           type="button"
           aria-label="Toggle menu"
-          className="md:hidden relative w-8 h-8 flex flex-col items-center justify-center gap-1.5"
+          className="relative flex h-8 w-8 flex-col items-center justify-center gap-1.5 md:hidden"
           onClick={() => setMobileOpen((v) => !v)}
         >
           <span
-            className={`block h-0.5 w-6 bg-navy transition-all duration-300 ${
+            className={`bg-navy block h-0.5 w-6 transition-all duration-300 ${
               mobileOpen ? "translate-y-2 rotate-45" : ""
             }`}
           />
           <span
-            className={`block h-0.5 w-6 bg-navy transition-all duration-300 ${
+            className={`bg-navy block h-0.5 w-6 transition-all duration-300 ${
               mobileOpen ? "opacity-0" : ""
             }`}
           />
           <span
-            className={`block h-0.5 w-6 bg-navy transition-all duration-300 ${
+            className={`bg-navy block h-0.5 w-6 transition-all duration-300 ${
               mobileOpen ? "-translate-y-2 -rotate-45" : ""
             }`}
           />
@@ -99,17 +97,17 @@ export default function Header() {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ type: "tween", duration: 0.3 }}
-            className="fixed inset-0 top-0 bg-white z-40 flex flex-col items-center justify-center gap-8"
+            className="fixed inset-0 top-0 z-40 flex flex-col items-center justify-center gap-8 bg-white"
           >
             {/* Close button */}
             <button
               type="button"
               aria-label="Close menu"
-              className="absolute top-5 right-5 w-8 h-8 flex items-center justify-center"
+              className="absolute top-5 right-5 flex h-8 w-8 items-center justify-center"
               onClick={() => setMobileOpen(false)}
             >
-              <span className="block h-0.5 w-6 bg-navy rotate-45 absolute" />
-              <span className="block h-0.5 w-6 bg-navy -rotate-45 absolute" />
+              <span className="bg-navy absolute block h-0.5 w-6 rotate-45" />
+              <span className="bg-navy absolute block h-0.5 w-6 -rotate-45" />
             </button>
 
             {navLinks.map((link) => (
@@ -117,7 +115,7 @@ export default function Header() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setMobileOpen(false)}
-                className="text-2xl font-black text-navy uppercase tracking-wide hover:gradient-text transition-colors duration-200"
+                className="text-navy hover:gradient-text text-2xl font-black tracking-wide uppercase transition-colors duration-200"
               >
                 {link.name}
               </Link>
@@ -126,5 +124,5 @@ export default function Header() {
         )}
       </AnimatePresence>
     </header>
-  );
+  )
 }
