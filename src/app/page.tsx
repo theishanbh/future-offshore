@@ -1,6 +1,18 @@
 "use client"
 
+import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
 import { motion } from "framer-motion"
+import {
+  CheckCircle,
+  ChevronDown,
+  ClipboardList,
+  Film,
+  Lightbulb,
+  Rocket,
+  Users,
+  Wrench,
+} from "lucide-react"
 import Link from "next/link"
 
 const fadeInUp = {
@@ -65,18 +77,21 @@ function Hero() {
           {...stagger(0.6)}
           className="flex flex-col items-center justify-center gap-4 sm:flex-row"
         >
-          <Link
-            href="/services"
-            className="gradient-bg rounded-full px-8 py-3 font-semibold text-white transition-opacity hover:opacity-90"
+          <Button
+            className="gradient-bg h-auto rounded-full border-none px-8 py-3 font-semibold text-white transition-opacity hover:opacity-90"
+            nativeButton={false}
+            render={<Link href="/services" />}
           >
             Our Services
-          </Link>
-          <Link
-            href="/contact"
-            className="rounded-full border-2 border-white px-8 py-3 font-semibold text-white transition-colors hover:bg-white/10"
+          </Button>
+          <Button
+            variant="outline"
+            className="h-auto rounded-full border-2 border-white bg-transparent px-8 py-3 font-semibold text-white hover:bg-white/10 hover:text-white"
+            nativeButton={false}
+            render={<Link href="/contact" />}
           >
             Get in Touch
-          </Link>
+          </Button>
         </motion.div>
       </div>
 
@@ -86,18 +101,7 @@ function Hero() {
         animate={{ y: [0, 10, 0] }}
         transition={{ repeat: Infinity, duration: 1.8 }}
       >
-        <svg
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="white"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <path d="M6 9l6 6 6-6" />
-        </svg>
+        <ChevronDown className="size-6 text-white" />
       </motion.div>
     </section>
   )
@@ -106,16 +110,16 @@ function Hero() {
 /* ───────────────────────── About Intro ───────────────────────── */
 function AboutIntro() {
   return (
-    <section className="bg-white py-24">
+    <section className="bg-background py-24">
       <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 md:grid-cols-2">
         <motion.div {...fadeInUp}>
           <p className="text-fo-green mb-4 text-sm font-semibold tracking-widest uppercase">
             Who We Are
           </p>
-          <h2 className="text-navy mb-6 text-3xl leading-tight font-black sm:text-4xl">
+          <h2 className="text-primary mb-6 text-3xl leading-tight font-black sm:text-4xl">
             Engineering Excellence, Delivered Personally
           </h2>
-          <p className="mb-6 leading-relaxed text-gray-600">
+          <p className="text-muted-foreground mb-6 leading-relaxed">
             Future Offshore is established to provide a personalised, flexible
             and innovation driven service to customers. We want to work closely
             with clients, move faster, and deliver solutions tailored precisely
@@ -123,12 +127,13 @@ function AboutIntro() {
             experience, our team brings deep technical expertise across pipelay,
             cable lay, subsea systems, project management, and consulting.
           </p>
-          <Link
-            href="/about"
-            className="gradient-bg inline-block rounded-full px-6 py-3 font-semibold text-white transition-opacity hover:opacity-90"
+          <Button
+            className="gradient-bg h-auto rounded-full border-none px-6 py-3 font-semibold text-white transition-opacity hover:opacity-90"
+            nativeButton={false}
+            render={<Link href="/about" />}
           >
             Learn More
-          </Link>
+          </Button>
         </motion.div>
 
         <motion.div {...fadeInUp} transition={{ duration: 0.6, delay: 0.2 }}>
@@ -149,93 +154,37 @@ const services = [
     title: "Project Support",
     description:
       "Client representation, project management, and quality oversight to safeguard your project interests.",
-    icon: (
-      <svg
-        className="h-10 w-10"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-        strokeWidth={1.5}
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15a2.25 2.25 0 012.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25zM6.75 12h.008v.008H6.75V12zm0 3h.008v.008H6.75V15zm0 3h.008v.008H6.75V18z"
-        />
-      </svg>
-    ),
+    icon: ClipboardList,
   },
   {
     title: "Technical Support",
     description:
       "Expert engineering for pipelay, cable lay, and subsea equipment systems.",
-    icon: (
-      <svg
-        className="h-10 w-10"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-        strokeWidth={1.5}
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M11.42 15.17l-5.1-5.1a2.121 2.121 0 113-3l5.1 5.1m0 0l2.83 2.83m-2.83-2.83l5.1-5.1a2.121 2.121 0 113 3l-5.1 5.1m-2.83 2.83l-2.83 2.83a2.121 2.121 0 11-3-3l2.83-2.83"
-        />
-      </svg>
-    ),
+    icon: Wrench,
   },
   {
     title: "Engineering Services",
     description:
       "From concept development to detailed design and operational engineering.",
-    icon: (
-      <svg
-        className="h-10 w-10"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-        strokeWidth={1.5}
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M9 4.5v15m6-15v15m-10.875 0h15.75c.621 0 1.125-.504 1.125-1.125V5.625c0-.621-.504-1.125-1.125-1.125H4.125C3.504 4.5 3 5.004 3 5.625v12.75c0 .621.504 1.125 1.125 1.125z"
-        />
-      </svg>
-    ),
+    icon: Film,
   },
   {
     title: "Project Delivery",
     description:
       "20+ years delivering offshore projects through the full lifecycle.",
-    icon: (
-      <svg
-        className="h-10 w-10"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-        strokeWidth={1.5}
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.841m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"
-        />
-      </svg>
-    ),
+    icon: Rocket,
   },
 ]
 
 function ServicesOverview() {
   return (
-    <section className="bg-gray-50 py-24">
+    <section className="bg-muted py-24">
       <div className="mx-auto max-w-7xl px-4">
         <motion.div {...fadeInUp} className="mb-16 text-center">
           <p className="text-fo-green mb-4 text-sm font-semibold tracking-widest uppercase">
             What We Do
           </p>
-          <h2 className="text-navy text-3xl font-black sm:text-4xl">
+          <h2 className="text-primary text-3xl font-black sm:text-4xl">
             Our Services
           </h2>
         </motion.div>
@@ -246,21 +195,32 @@ function ServicesOverview() {
               key={s.title}
               {...fadeInUp}
               transition={{ duration: 0.6, delay: i * 0.15 }}
-              className="group relative overflow-hidden rounded-xl bg-white p-8 shadow-lg transition-shadow hover:shadow-xl"
             >
-              {/* top gradient border */}
-              <div className="gradient-bg absolute top-0 right-0 left-0 h-[3px]" />
-              <div className="text-fo-blue mb-4">{s.icon}</div>
-              <h3 className="text-navy mb-3 text-xl font-black">{s.title}</h3>
-              <p className="mb-4 leading-relaxed text-gray-600">
-                {s.description}
-              </p>
-              <Link
-                href="/services"
-                className="text-fo-blue font-semibold hover:underline"
-              >
-                Learn More &rarr;
-              </Link>
+              <Card className="group relative overflow-hidden transition-shadow hover:shadow-xl">
+                {/* top gradient border */}
+                <div className="gradient-bg absolute top-0 right-0 left-0 h-[3px]" />
+                <CardHeader>
+                  <s.icon className="text-accent size-10" />
+                </CardHeader>
+                <CardContent>
+                  <h3 className="text-primary mb-3 text-xl font-black">
+                    {s.title}
+                  </h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    {s.description}
+                  </p>
+                </CardContent>
+                <CardFooter>
+                  <Button
+                    variant="link"
+                    className="text-accent p-0"
+                    nativeButton={false}
+                    render={<Link href="/services" />}
+                  >
+                    Learn More &rarr;
+                  </Button>
+                </CardFooter>
+              </Card>
             </motion.div>
           ))}
         </div>
@@ -304,70 +264,28 @@ const values = [
     title: "Innovate",
     description:
       "We challenge assumptions, embrace curiosity, and push boundaries to find smarter, safer, and more efficient engineering solutions.",
-    icon: (
-      <svg
-        className="h-12 w-12"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-        strokeWidth={1.5}
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.383a14.406 14.406 0 01-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 10-7.517 0c.85.493 1.509 1.333 1.509 2.316V18"
-        />
-      </svg>
-    ),
+    icon: Lightbulb,
   },
   {
     title: "Collaborate",
     description:
       "We believe the best engineering is built together. Collaboration means valuing diverse perspectives and communicating openly.",
-    icon: (
-      <svg
-        className="h-12 w-12"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-        strokeWidth={1.5}
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z"
-        />
-      </svg>
-    ),
+    icon: Users,
   },
   {
     title: "Deliver",
     description:
       "We take ownership of our work and are committed to delivering reliable, high-quality results every time.",
-    icon: (
-      <svg
-        className="h-12 w-12"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-        strokeWidth={1.5}
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-        />
-      </svg>
-    ),
+    icon: CheckCircle,
   },
 ]
 
 function CoreValues() {
   return (
-    <section className="bg-white py-24">
+    <section className="bg-background py-24">
       <div className="mx-auto max-w-7xl px-4">
         <motion.div {...fadeInUp} className="mb-16 text-center">
-          <h2 className="text-navy text-3xl font-black sm:text-4xl">
+          <h2 className="text-primary text-3xl font-black sm:text-4xl">
             Our Core Values
           </h2>
         </motion.div>
@@ -380,11 +298,15 @@ function CoreValues() {
               transition={{ duration: 0.6, delay: i * 0.15 }}
               className="text-center"
             >
-              <div className="text-fo-blue mb-4 inline-flex">{v.icon}</div>
+              <div className="text-accent mb-4 inline-flex">
+                <v.icon className="size-12" />
+              </div>
               <h3 className="gradient-text mb-3 text-2xl font-black">
                 {v.title}
               </h3>
-              <p className="leading-relaxed text-gray-600">{v.description}</p>
+              <p className="text-muted-foreground leading-relaxed">
+                {v.description}
+              </p>
             </motion.div>
           ))}
         </div>
@@ -402,7 +324,7 @@ function CTABanner() {
         <svg viewBox="0 0 1440 60" fill="none" className="w-full">
           <path
             d="M0 60V0c240 40 480 60 720 40S1200 0 1440 30v30H0z"
-            fill="white"
+            className="fill-background"
           />
         </svg>
       </div>
@@ -418,12 +340,13 @@ function CTABanner() {
             Let&apos;s discuss how Future Offshore can support your engineering
             needs.
           </p>
-          <Link
-            href="/contact"
-            className="text-navy inline-block rounded-full bg-white px-8 py-3 font-semibold transition-colors hover:bg-white/90"
+          <Button
+            className="text-navy h-auto rounded-full bg-white px-8 py-3 font-semibold hover:bg-white/90"
+            nativeButton={false}
+            render={<Link href="/contact" />}
           >
             Contact Us
-          </Link>
+          </Button>
         </motion.div>
       </div>
     </section>

@@ -1,6 +1,10 @@
 "use client"
 
+import { Avatar, AvatarFallback } from "@/components/ui/avatar"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent } from "@/components/ui/card"
 import { motion } from "framer-motion"
+import { BadgeCheck, Lightbulb, Users } from "lucide-react"
 import Link from "next/link"
 
 const fadeInUp = {
@@ -15,61 +19,19 @@ const stagger = {
 const values = [
   {
     title: "INNOVATE",
-    icon: (
-      <svg
-        className="h-10 w-10"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-        strokeWidth={1.5}
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.383a14.406 14.406 0 01-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 10-7.517 0c.85.493 1.509 1.333 1.509 2.316V18"
-        />
-      </svg>
-    ),
+    icon: Lightbulb,
     description:
       "We challenge assumptions, embrace curiosity, and push boundaries to find smarter, safer, and more efficient engineering solutions. Innovation is not just about new technology — it's about continuously improving how we think, design, and deliver.",
   },
   {
     title: "COLLABORATE",
-    icon: (
-      <svg
-        className="h-10 w-10"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-        strokeWidth={1.5}
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z"
-        />
-      </svg>
-    ),
+    icon: Users,
     description:
       "We believe the best engineering is built together. Collaboration means valuing diverse perspectives, communicating openly, and working as one team with clients, partners, and suppliers.",
   },
   {
     title: "DELIVER",
-    icon: (
-      <svg
-        className="h-10 w-10"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-        strokeWidth={1.5}
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z"
-        />
-      </svg>
-    ),
+    icon: BadgeCheck,
     description:
       "We take ownership of our work and are committed to delivering reliable, high-quality results every time. Precision, safety, and accountability guide our approach from concept to completion.",
   },
@@ -119,7 +81,7 @@ export default function AboutPage() {
       </section>
 
       {/* Who We Are */}
-      <section className="bg-white py-24">
+      <section className="bg-background py-24">
         <div className="mx-auto max-w-7xl px-4">
           <motion.div
             initial="hidden"
@@ -129,10 +91,10 @@ export default function AboutPage() {
             className="grid grid-cols-1 items-center gap-16 lg:grid-cols-2"
           >
             <motion.div variants={fadeInUp}>
-              <h2 className="text-navy mb-6 text-3xl font-black md:text-4xl">
+              <h2 className="text-primary mb-6 text-3xl font-black md:text-4xl">
                 Who We Are
               </h2>
-              <p className="text-lg leading-relaxed text-gray-700">
+              <p className="text-muted-foreground text-lg leading-relaxed">
                 Future Offshore is established to provide a personalised,
                 flexible and innovation driven service to customers. We want to
                 work closely with clients, move faster, and deliver solutions
@@ -147,8 +109,10 @@ export default function AboutPage() {
               </p>
             </motion.div>
             <motion.div variants={fadeInUp}>
-              <div className="flex h-80 items-center justify-center rounded-xl bg-gray-200">
-                <span className="text-lg text-gray-400">Company Image</span>
+              <div className="bg-muted flex h-80 items-center justify-center rounded-xl">
+                <span className="text-muted-foreground text-lg">
+                  Company Image
+                </span>
               </div>
             </motion.div>
           </motion.div>
@@ -156,7 +120,7 @@ export default function AboutPage() {
       </section>
 
       {/* Mission */}
-      <section className="bg-gray-50 py-24">
+      <section className="bg-muted py-24">
         <div className="mx-auto max-w-7xl px-4">
           <motion.div
             initial="hidden"
@@ -167,13 +131,13 @@ export default function AboutPage() {
           >
             <motion.h2
               variants={fadeInUp}
-              className="text-navy mb-8 text-3xl font-black md:text-4xl"
+              className="text-primary mb-8 text-3xl font-black md:text-4xl"
             >
               Our Mission
             </motion.h2>
             <motion.p
               variants={fadeInUp}
-              className="text-lg leading-relaxed text-gray-700 md:text-xl"
+              className="text-muted-foreground text-lg leading-relaxed md:text-xl"
             >
               To shape the future of the offshore engineering industry by
               working collaboratively with clients and operators to turn complex
@@ -186,7 +150,7 @@ export default function AboutPage() {
       </section>
 
       {/* Experience */}
-      <section className="bg-white py-24">
+      <section className="bg-background py-24">
         <div className="mx-auto max-w-7xl px-4">
           <motion.div
             initial="hidden"
@@ -197,13 +161,13 @@ export default function AboutPage() {
           >
             <motion.h2
               variants={fadeInUp}
-              className="text-navy mb-8 text-center text-3xl font-black md:text-4xl"
+              className="text-primary mb-8 text-center text-3xl font-black md:text-4xl"
             >
               Our Experience
             </motion.h2>
             <motion.p
               variants={fadeInUp}
-              className="text-center text-lg leading-relaxed text-gray-700"
+              className="text-muted-foreground text-center text-lg leading-relaxed"
             >
               Leading the design, delivery, and commissioning of some of the
               most advanced pipelay, cable lay and subsea systems in operation
@@ -221,7 +185,7 @@ export default function AboutPage() {
       </section>
 
       {/* Team */}
-      <section className="bg-gray-50 py-24">
+      <section className="bg-muted py-24">
         <div className="mx-auto max-w-7xl px-4">
           <motion.div
             initial="hidden"
@@ -231,31 +195,31 @@ export default function AboutPage() {
           >
             <motion.h2
               variants={fadeInUp}
-              className="text-navy mb-12 text-center text-3xl font-black md:text-4xl"
+              className="text-primary mb-12 text-center text-3xl font-black md:text-4xl"
             >
               Our Leadership
             </motion.h2>
             <div className="mx-auto grid max-w-4xl grid-cols-1 gap-8 md:grid-cols-2">
               {team.map((member) => (
-                <motion.div
-                  key={member.name}
-                  variants={fadeInUp}
-                  className="rounded-xl bg-white p-8 text-center shadow-lg"
-                >
-                  <div className="bg-navy mx-auto mb-6 flex h-24 w-24 items-center justify-center rounded-full">
-                    <span className="text-2xl font-black text-white">
-                      {member.initials}
-                    </span>
-                  </div>
-                  <h3 className="text-navy text-xl font-black">
-                    {member.name}
-                  </h3>
-                  <p className="gradient-text mb-4 font-semibold">
-                    {member.role}
-                  </p>
-                  <p className="text-sm leading-relaxed text-gray-600">
-                    {member.description}
-                  </p>
+                <motion.div key={member.name} variants={fadeInUp}>
+                  <Card className="text-center">
+                    <CardContent className="pt-8">
+                      <Avatar className="mx-auto mb-6 size-24">
+                        <AvatarFallback className="bg-primary text-primary-foreground text-2xl font-black">
+                          {member.initials}
+                        </AvatarFallback>
+                      </Avatar>
+                      <h3 className="text-primary text-xl font-black">
+                        {member.name}
+                      </h3>
+                      <p className="gradient-text mb-4 font-semibold">
+                        {member.role}
+                      </p>
+                      <p className="text-muted-foreground text-sm leading-relaxed">
+                        {member.description}
+                      </p>
+                    </CardContent>
+                  </Card>
                 </motion.div>
               ))}
             </div>
@@ -280,20 +244,20 @@ export default function AboutPage() {
             </motion.h2>
             <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
               {values.map((value) => (
-                <motion.div
-                  key={value.title}
-                  variants={fadeInUp}
-                  className="rounded-xl bg-white/5 p-8 text-center backdrop-blur"
-                >
-                  <div className="text-fo-green mb-4 flex justify-center">
-                    {value.icon}
-                  </div>
-                  <h3 className="gradient-text mb-4 text-xl font-black">
-                    {value.title}
-                  </h3>
-                  <p className="text-sm leading-relaxed text-gray-300">
-                    {value.description}
-                  </p>
+                <motion.div key={value.title} variants={fadeInUp}>
+                  <Card className="border-white/10 bg-white/5 text-center backdrop-blur">
+                    <CardContent className="pt-8">
+                      <div className="text-fo-green mb-4 flex justify-center">
+                        <value.icon className="size-10" />
+                      </div>
+                      <h3 className="gradient-text mb-4 text-xl font-black">
+                        {value.title}
+                      </h3>
+                      <p className="text-sm leading-relaxed text-gray-300">
+                        {value.description}
+                      </p>
+                    </CardContent>
+                  </Card>
                 </motion.div>
               ))}
             </div>
@@ -317,12 +281,13 @@ export default function AboutPage() {
               Ready to Work Together?
             </motion.h2>
             <motion.div variants={fadeInUp}>
-              <Link
-                href="/contact"
-                className="text-navy inline-block rounded-lg bg-white px-8 py-4 text-lg font-bold transition-colors hover:bg-gray-100"
+              <Button
+                className="text-navy h-auto rounded-full bg-white px-8 py-4 text-lg font-bold hover:bg-gray-100"
+                nativeButton={false}
+                render={<Link href="/contact" />}
               >
                 Contact Us
-              </Link>
+              </Button>
             </motion.div>
           </motion.div>
         </div>

@@ -2,10 +2,11 @@ import type { Metadata } from "next"
 import "./globals.css"
 import Footer from "@/components/Footer"
 import Header from "@/components/Header"
-import { Geist } from "next/font/google";
-import { cn } from "@/lib/utils";
+import { ThemeProvider } from "@/components/ThemeProvider"
+import { cn } from "@/lib/utils"
+import { Geist } from "next/font/google"
 
-const geist = Geist({subsets:['latin'],variable:'--font-sans'});
+const geist = Geist({ subsets: ["latin"], variable: "--font-sans" })
 
 export const metadata: Metadata = {
   title: "Future Offshore | Innovate. Collaborate. Deliver.",
@@ -19,11 +20,22 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={cn("antialiased", "font-sans", geist.variable)}>
+    <html
+      lang="en"
+      className={cn("antialiased", "font-sans", geist.variable)}
+      suppressHydrationWarning
+    >
       <body className="flex min-h-screen flex-col">
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="light"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Header />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   )

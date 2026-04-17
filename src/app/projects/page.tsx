@@ -1,8 +1,13 @@
 "use client"
 
 import AnimatedSection from "@/components/AnimatedSection"
+import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent } from "@/components/ui/card"
 import { projects } from "@/data/projects"
+import { cn } from "@/lib/utils"
 import { AnimatePresence, motion } from "framer-motion"
+import { ArrowRight } from "lucide-react"
 import Link from "next/link"
 import { useState } from "react"
 
@@ -53,17 +58,19 @@ export default function ProjectsPage() {
         <AnimatedSection>
           <div className="mb-12 flex flex-wrap justify-center gap-3">
             {categories.map((cat) => (
-              <button
+              <Button
                 key={cat}
+                variant="outline"
                 onClick={() => setActiveFilter(cat)}
-                className={`rounded-full px-5 py-2 text-sm font-semibold transition-all duration-300 ${
-                  activeFilter === cat
-                    ? "gradient-bg text-white shadow-lg"
-                    : "text-navy border-navy/20 hover:border-navy/50 border bg-white"
-                }`}
+                className={cn("rounded-full px-5 py-2 text-sm font-semibold", {
+                  "gradient-bg border-transparent text-white shadow-lg":
+                    activeFilter === cat,
+                  "border-primary/20 bg-background text-primary hover:border-primary/50":
+                    activeFilter !== cat,
+                })}
               >
                 {cat}
-              </button>
+              </Button>
             ))}
           </div>
         </AnimatedSection>
@@ -82,35 +89,39 @@ export default function ProjectsPage() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.4 }}
-                className="overflow-hidden rounded-xl bg-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
               >
-                <div className="relative">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="h-56 w-full object-cover"
-                  />
-                  <span className="gradient-bg absolute bottom-0 left-4 translate-y-1/2 rounded-full px-3 py-1 text-xs font-semibold text-white">
-                    {project.category}
-                  </span>
-                </div>
-                <div className="p-6 pt-8">
-                  <h3 className="text-navy mb-1 text-lg font-bold">
-                    {project.title}
-                  </h3>
-                  <p className="mb-3 text-sm text-gray-500">
-                    {project.client} &middot; {project.year}
-                  </p>
-                  <p className="mb-4 line-clamp-3 text-sm text-gray-600">
-                    {project.description}
-                  </p>
-                  <Link
-                    href={`/projects/${project.slug}`}
-                    className="text-fo-blue hover:text-navy text-sm font-semibold transition-colors"
-                  >
-                    View Details &rarr;
-                  </Link>
-                </div>
+                <Card className="overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+                  <div className="relative">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="h-56 w-full object-cover"
+                    />
+                    <Badge className="gradient-bg absolute bottom-0 left-4 translate-y-1/2 border-none text-white">
+                      {project.category}
+                    </Badge>
+                  </div>
+                  <CardContent className="p-6 pt-8">
+                    <h3 className="text-primary mb-1 text-lg font-bold">
+                      {project.title}
+                    </h3>
+                    <p className="text-muted-foreground mb-3 text-sm">
+                      {project.client} &middot; {project.year}
+                    </p>
+                    <p className="text-muted-foreground mb-4 line-clamp-3 text-sm">
+                      {project.description}
+                    </p>
+                    <Button
+                      variant="link"
+                      className="text-accent gap-1 p-0"
+                      nativeButton={false}
+                      render={<Link href={`/projects/${project.slug}`} />}
+                    >
+                      View Details
+                      <ArrowRight className="size-4" />
+                    </Button>
+                  </CardContent>
+                </Card>
               </motion.div>
             ))}
           </AnimatePresence>
