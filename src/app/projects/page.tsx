@@ -5,7 +5,6 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { projects } from "@/data/projects"
-import { cn } from "@/lib/utils"
 import { AnimatePresence, motion } from "framer-motion"
 import { ArrowRight } from "lucide-react"
 import Link from "next/link"
@@ -60,14 +59,10 @@ export default function ProjectsPage() {
             {categories.map((cat) => (
               <Button
                 key={cat}
-                variant="outline"
+                variant="filter"
+                size="pillSm"
+                active={activeFilter === cat}
                 onClick={() => setActiveFilter(cat)}
-                className={cn("rounded-full px-5 py-2 text-sm font-semibold", {
-                  "gradient-bg border-transparent text-white shadow-lg":
-                    activeFilter === cat,
-                  "border-primary/20 bg-background text-primary hover:border-primary/50":
-                    activeFilter !== cat,
-                })}
               >
                 {cat}
               </Button>
@@ -113,7 +108,6 @@ export default function ProjectsPage() {
                     </p>
                     <Button
                       variant="link"
-                      className="text-accent gap-1 p-0"
                       nativeButton={false}
                       render={<Link href={`/projects/${project.slug}`} />}
                     >

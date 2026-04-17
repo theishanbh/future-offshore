@@ -78,15 +78,16 @@ function Hero() {
           className="flex flex-col items-center justify-center gap-4 sm:flex-row"
         >
           <Button
-            className="gradient-bg h-auto rounded-full border-none px-8 py-3 font-semibold text-white transition-opacity hover:opacity-90"
+            variant="accent"
+            size="pill"
             nativeButton={false}
             render={<Link href="/services" />}
           >
             Our Services
           </Button>
           <Button
-            variant="outline"
-            className="h-auto rounded-full border-2 border-white bg-transparent px-8 py-3 font-semibold text-white hover:bg-white/10 hover:text-white"
+            variant="outlineHero"
+            size="pill"
             nativeButton={false}
             render={<Link href="/contact" />}
           >
@@ -128,7 +129,7 @@ function AboutIntro() {
             cable lay, subsea systems, project management, and consulting.
           </p>
           <Button
-            className="gradient-bg h-auto rounded-full border-none px-6 py-3 font-semibold text-white transition-opacity hover:opacity-90"
+            size="pill"
             nativeButton={false}
             render={<Link href="/about" />}
           >
@@ -213,7 +214,6 @@ function ServicesOverview() {
                 <CardFooter>
                   <Button
                     variant="link"
-                    className="text-accent p-0"
                     nativeButton={false}
                     render={<Link href="/services" />}
                   >
@@ -341,7 +341,8 @@ function CTABanner() {
             needs.
           </p>
           <Button
-            className="text-navy h-auto rounded-full bg-white px-8 py-3 font-semibold hover:bg-white/90"
+            variant="white"
+            size="pill"
             nativeButton={false}
             render={<Link href="/contact" />}
           >

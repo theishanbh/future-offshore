@@ -225,7 +225,7 @@ export default function ContactPage() {
               <Button
                 type="submit"
                 disabled={status === "loading"}
-                className="gradient-bg h-auto w-full rounded-full border-none py-4 font-semibold text-white transition-opacity hover:opacity-90 disabled:opacity-60"
+                size="pillBlock"
               >
                 {status === "loading" ? "Sending..." : "Send Enquiry"}
               </Button>

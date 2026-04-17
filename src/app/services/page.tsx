@@ -36,11 +36,7 @@ function ServiceCard({ service }: { service: (typeof services)[0] }) {
             <p className="text-muted-foreground mb-4 text-sm leading-relaxed">
               {service.shortDescription}
             </p>
-            <Button
-              variant="link"
-              className="text-accent gap-1 p-0"
-              tabIndex={-1}
-            >
+            <Button variant="link" tabIndex={-1}>
               Learn More
               <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
             </Button>

@@ -282,7 +282,8 @@ export default function AboutPage() {
             </motion.h2>
             <motion.div variants={fadeInUp}>
               <Button
-                className="text-navy h-auto rounded-full bg-white px-8 py-4 text-lg font-bold hover:bg-gray-100"
+                variant="white"
+                size="pillLg"
                 nativeButton={false}
                 render={<Link href="/contact" />}
               >
