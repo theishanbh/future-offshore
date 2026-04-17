@@ -1,5 +1,5 @@
-import Link from "next/link";
-import Image from "next/image";
+import Image from "next/image"
+import Link from "next/link"
 
 const quickLinks = [
   { name: "Home", href: "/" },
@@ -7,21 +7,21 @@ const quickLinks = [
   { name: "About", href: "/about" },
   { name: "Projects", href: "/projects" },
   { name: "Contact", href: "/contact" },
-];
+]
 
 const services = [
   "Project Support",
   "Technical Support",
   "Engineering Services",
   "Quality Management",
-];
+]
 
 export default function Footer() {
   return (
     <footer className="bg-navy text-white">
       {/* Main Footer */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 md:py-16 lg:px-8">
+        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
           {/* Company Info */}
           <div>
             <Image
@@ -29,9 +29,9 @@ export default function Footer() {
               alt="Future Offshore"
               width={140}
               height={50}
-              className="h-[50px] w-auto mb-4"
+              className="mb-4 h-[50px] w-auto"
             />
-            <p className="text-sm text-white/70 leading-relaxed">
+            <p className="text-sm leading-relaxed text-white/70">
               Future Offshore delivers innovative engineering solutions and
               expert support to the offshore energy industry, committed to
               safety, quality, and excellence.
@@ -40,7 +40,7 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-base font-semibold mb-4 uppercase tracking-wide">
+            <h4 className="mb-4 text-base font-semibold tracking-wide uppercase">
               Quick Links
             </h4>
             <ul className="space-y-2">
@@ -48,7 +48,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-white/70 hover:text-fo-green transition-colors duration-200"
+                    className="hover:text-fo-green text-sm text-white/70 transition-colors duration-200"
                   >
                     {link.name}
                   </Link>
@@ -59,7 +59,7 @@ export default function Footer() {
 
           {/* Services */}
           <div>
-            <h4 className="text-base font-semibold mb-4 uppercase tracking-wide">
+            <h4 className="mb-4 text-base font-semibold tracking-wide uppercase">
               Services
             </h4>
             <ul className="space-y-2">
@@ -73,7 +73,7 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="text-base font-semibold mb-4 uppercase tracking-wide">
+            <h4 className="mb-4 text-base font-semibold tracking-wide uppercase">
               Contact
             </h4>
             <ul className="space-y-2 text-sm text-white/70">
@@ -100,10 +100,10 @@ export default function Footer() {
       </div>
 
       {/* Gradient Strip */}
-      <div className="h-[3px] gradient-bg" />
+      <div className="gradient-bg h-[3px]" />
 
       {/* Bottom Bar */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-4 py-4 sm:flex-row sm:px-6 lg:px-8">
         <p className="text-xs text-white/50">
           &copy; 2024 Future Offshore. All rights reserved.
         </p>
@@ -114,7 +114,7 @@ export default function Footer() {
           <a
             href="#"
             aria-label="LinkedIn"
-            className="text-white/50 hover:text-fo-green transition-colors duration-200"
+            className="hover:text-fo-green text-white/50 transition-colors duration-200"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -131,7 +131,7 @@ export default function Footer() {
           <a
             href="mailto:info@futureoffshore.co.uk"
             aria-label="Email"
-            className="text-white/50 hover:text-fo-green transition-colors duration-200"
+            className="hover:text-fo-green text-white/50 transition-colors duration-200"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -151,5 +151,5 @@ export default function Footer() {
         </div>
       </div>
     </footer>
-  );
+  )
 }

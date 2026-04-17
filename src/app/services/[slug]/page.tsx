@@ -1,50 +1,53 @@
-import Link from 'next/link';
-import { notFound } from 'next/navigation';
-import type { Metadata } from 'next';
-import { services, getServiceBySlug } from '@/data/services';
+import { getServiceBySlug, services } from "@/data/services"
+import type { Metadata } from "next"
+import Link from "next/link"
+import { notFound } from "next/navigation"
 
 export async function generateStaticParams() {
-  return services.map((s) => ({ slug: s.slug }));
+  return services.map((s) => ({ slug: s.slug }))
 }
 
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ slug: string }>
 }): Promise<Metadata> {
-  const { slug } = await params;
-  const service = getServiceBySlug(slug);
-  if (!service) return { title: 'Service Not Found' };
+  const { slug } = await params
+  const service = getServiceBySlug(slug)
+  if (!service) return { title: "Service Not Found" }
   return {
     title: `${service.title} | Future Offshore`,
     description: service.shortDescription,
-  };
+  }
 }
 
 export default async function ServicePage({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ slug: string }>
 }) {
-  const { slug } = await params;
-  const service = getServiceBySlug(slug);
-  if (!service) notFound();
+  const { slug } = await params
+  const service = getServiceBySlug(slug)
+  if (!service) notFound()
 
   const otherServices = services
     .filter((s) => s.slug !== service.slug)
-    .slice(0, 3);
+    .slice(0, 3)
 
   return (
     <>
       {/* Breadcrumb */}
       <div className="bg-navy/95 pt-6 pb-0">
-        <div className="max-w-7xl mx-auto px-4">
-          <nav className="text-sm text-gray-400 flex items-center gap-2">
-            <Link href="/" className="hover:text-white transition-colors">
+        <div className="mx-auto max-w-7xl px-4">
+          <nav className="flex items-center gap-2 text-sm text-gray-400">
+            <Link href="/" className="transition-colors hover:text-white">
               Home
             </Link>
             <span>/</span>
-            <Link href="/services" className="hover:text-white transition-colors">
+            <Link
+              href="/services"
+              className="transition-colors hover:text-white"
+            >
               Services
             </Link>
             <span>/</span>
@@ -55,11 +58,11 @@ export default async function ServicePage({
 
       {/* Hero */}
       <section className="bg-navy py-16 md:py-24">
-        <div className="max-w-7xl mx-auto px-4">
-          <span className="inline-block text-fo-green font-semibold text-sm uppercase tracking-wider mb-4">
+        <div className="mx-auto max-w-7xl px-4">
+          <span className="text-fo-green mb-4 inline-block text-sm font-semibold tracking-wider uppercase">
             {service.categoryLabel}
           </span>
-          <h1 className="text-4xl md:text-6xl font-black text-white">
+          <h1 className="text-4xl font-black text-white md:text-6xl">
             {service.title}
           </h1>
         </div>
@@ -67,22 +70,22 @@ export default async function ServicePage({
 
       {/* Content */}
       <section className="py-16 md:py-24">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+        <div className="mx-auto max-w-7xl px-4">
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-3">
             {/* Left: Description + Features */}
             <div className="lg:col-span-2">
-              <p className="text-gray-700 text-lg leading-relaxed mb-10">
+              <p className="mb-10 text-lg leading-relaxed text-gray-700">
                 {service.fullDescription}
               </p>
 
-              <h2 className="text-2xl font-black text-navy mb-6">
+              <h2 className="text-navy mb-6 text-2xl font-black">
                 What We Deliver
               </h2>
-              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 {service.features.map((feature) => (
                   <li key={feature} className="flex items-start gap-3">
                     <svg
-                      className="w-5 h-5 text-fo-green mt-0.5 shrink-0"
+                      className="text-fo-green mt-0.5 h-5 w-5 shrink-0"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -105,17 +108,17 @@ export default async function ServicePage({
               <img
                 src={service.image}
                 alt={service.title}
-                className="w-full h-64 object-cover rounded-xl shadow-lg"
+                className="h-64 w-full rounded-xl object-cover shadow-lg"
               />
               <div className="bg-navy rounded-xl p-8 text-white">
-                <h3 className="text-xl font-black mb-3">Get in Touch</h3>
-                <p className="text-gray-300 text-sm mb-6 leading-relaxed">
+                <h3 className="mb-3 text-xl font-black">Get in Touch</h3>
+                <p className="mb-6 text-sm leading-relaxed text-gray-300">
                   Ready to discuss how we can support your project? Contact our
                   team today.
                 </p>
                 <Link
                   href="/contact"
-                  className="inline-block gradient-bg text-navy font-bold px-6 py-3 rounded-lg hover:opacity-90 transition-opacity"
+                  className="gradient-bg text-navy inline-block rounded-lg px-6 py-3 font-bold transition-opacity hover:opacity-90"
                 >
                   Contact Us
                 </Link>
@@ -126,33 +129,33 @@ export default async function ServicePage({
       </section>
 
       {/* Other Services */}
-      <section className="py-16 md:py-24 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-3xl font-black text-navy mb-10">
+      <section className="bg-gray-50 py-16 md:py-24">
+        <div className="mx-auto max-w-7xl px-4">
+          <h2 className="text-navy mb-10 text-3xl font-black">
             Other Services
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
             {otherServices.map((s) => (
               <Link
                 key={s.slug}
                 href={`/services/${s.slug}`}
-                className="block group"
+                className="group block"
               >
-                <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden">
-                  <div className="h-[3px] gradient-bg" />
+                <div className="overflow-hidden rounded-xl bg-white shadow-lg transition-shadow duration-300 hover:shadow-xl">
+                  <div className="gradient-bg h-[3px]" />
                   <img
                     src={s.image}
                     alt={s.title}
-                    className="w-full h-40 object-cover"
+                    className="h-40 w-full object-cover"
                   />
                   <div className="p-5">
-                    <span className="text-fo-green text-xs font-semibold uppercase tracking-wider">
+                    <span className="text-fo-green text-xs font-semibold tracking-wider uppercase">
                       {s.categoryLabel}
                     </span>
-                    <h3 className="text-lg font-black text-navy mt-1 mb-2">
+                    <h3 className="text-navy mt-1 mb-2 text-lg font-black">
                       {s.title}
                     </h3>
-                    <p className="text-gray-600 text-sm line-clamp-2">
+                    <p className="line-clamp-2 text-sm text-gray-600">
                       {s.shortDescription}
                     </p>
                   </div>
@@ -163,5 +166,5 @@ export default async function ServicePage({
         </div>
       </section>
     </>
-  );
+  )
 }
