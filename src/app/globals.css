@@ -4,7 +4,7 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* ── Montserrat Font Faces ── */
+/* ── Montserrat (kept as fallback) ── */
 @font-face {
   font-family: "Montserrat";
   src: url("../fonts/Montserrat-Light.otf") format("opentype");
@@ -190,9 +190,9 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 
-  /* Font */
-  --font-heading: var(--font-sans);
-  --font-sans: var(--font-sans);
+  /* Font — names match what next/font/local registers in layout.tsx */
+  --font-heading: "cabinetGrotesk", "Montserrat", sans-serif;
+  --font-sans: "generalSans", "Montserrat", sans-serif;
 
   /* Radius */
   --radius-sm: calc(var(--radius) * 0.6);
@@ -209,18 +209,13 @@ html {
   scroll-behavior: smooth;
 }
 
-body {
-  font-family: "Montserrat", sans-serif;
-  font-weight: 400;
-}
-
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  font-weight: 900;
+  font-weight: 800;
 }
 
 /* ── Utility Classes ── */
@@ -262,7 +257,15 @@ h6 {
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-heading;
   }
   html {
     @apply font-sans;

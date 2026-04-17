@@ -1,12 +1,22 @@
 import type { Metadata } from "next"
+import localFont from "next/font/local"
 import "./globals.css"
 import Footer from "@/components/Footer"
 import Header from "@/components/Header"
 import { ThemeProvider } from "@/components/ThemeProvider"
 import { cn } from "@/lib/utils"
-import { Geist } from "next/font/google"
 
-const geist = Geist({ subsets: ["latin"], variable: "--font-sans" })
+const generalSans = localFont({
+  src: "../fonts/GeneralSans-Variable.woff2",
+  variable: "--font-general-sans",
+  display: "swap",
+})
+
+const cabinetGrotesk = localFont({
+  src: "../fonts/CabinetGrotesk-Variable.woff2",
+  variable: "--font-cabinet-grotesk",
+  display: "swap",
+})
 
 export const metadata: Metadata = {
   title: "Future Offshore | Innovate. Collaborate. Deliver.",
@@ -22,10 +32,14 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={cn("antialiased", "font-sans", geist.variable)}
+      className={cn(
+        "antialiased",
+        generalSans.variable,
+        cabinetGrotesk.variable,
+      )}
       suppressHydrationWarning
     >
-      <body className="flex min-h-screen flex-col">
+      <body className="flex min-h-screen flex-col font-sans">
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
