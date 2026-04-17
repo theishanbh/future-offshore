@@ -62,22 +62,36 @@ export default function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className="text-navy group dark:text-foreground relative text-sm font-semibold tracking-wide uppercase"
+              className={cn(
+                "group relative text-sm font-semibold tracking-wide uppercase transition-colors duration-300",
+                {
+                  "text-foreground": scrolled,
+                  "text-white": !scrolled,
+                },
+              )}
             >
               {link.name}
               <span className="gradient-bg absolute -bottom-1 left-0 h-0.5 w-0 transition-all duration-300 group-hover:w-full" />
             </Link>
           ))}
-          <ThemeToggle />
+          <ThemeToggle scrolled={scrolled} />
         </nav>
 
         {/* Mobile: theme toggle + hamburger */}
         <div className="flex items-center gap-2 md:hidden">
-          <ThemeToggle />
+          <ThemeToggle scrolled={scrolled} />
           <Sheet open={sheetOpen} onOpenChange={setSheetOpen}>
             <SheetTrigger
               render={
-                <Button variant="ghost" size="icon" aria-label="Open menu" />
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  aria-label="Open menu"
+                  className={cn("transition-colors duration-300", {
+                    "text-foreground": scrolled,
+                    "text-white hover:bg-white/10": !scrolled,
+                  })}
+                />
               }
             >
               <Menu className="size-5" />
@@ -92,7 +106,7 @@ export default function Header() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setSheetOpen(false)}
-                  className="text-navy hover:text-fo-blue dark:text-foreground dark:hover:text-fo-green text-2xl font-black tracking-wide uppercase transition-colors duration-200"
+                  className="text-primary hover:text-fo-blue dark:hover:text-fo-green text-2xl font-black tracking-wide uppercase transition-colors duration-200"
                 >
                   {link.name}
                 </Link>
