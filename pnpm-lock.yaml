@@ -16,15 +16,15 @@ importers:
       next:
         specifier: 16.2.4
         version: 16.2.4(@babel/core@7.29.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+      nodemailer:
+        specifier: ^8.0.5
+        version: 8.0.5
       react:
         specifier: 19.2.4
         version: 19.2.4
       react-dom:
         specifier: 19.2.4
         version: 19.2.4(react@19.2.4)
-      resend:
-        specifier: ^6.12.0
-        version: 6.12.0
       zod:
         specifier: ^4.3.6
         version: 4.3.6
@@ -38,6 +38,9 @@ importers:
       "@types/node":
         specifier: ^20
         version: 20.19.39
+      "@types/nodemailer":
+        specifier: ^8.0.0
+        version: 8.0.0
       "@types/react":
         specifier: ^19
         version: 19.2.14
@@ -708,12 +711,6 @@ packages:
         integrity: sha512-zt6OdqaDoOnJ1ZYsCYGt9YmWzDXl4vQdKTyJev62gFhRGKdx7mcT54V9KIjg+d2wi9EXsPvAPKe7i7WjfVWB8g==,
       }
 
-  "@stablelib/base64@1.0.1":
-    resolution:
-      {
-        integrity: sha512-1bnPQqSxSuc3Ii6MhBysoWCg58j97aUjuCSZrGSmDxNqtytIi0k8utUenAwTZN4V5mXXYGsVUI9zeBqy+jBOSQ==,
-      }
-
   "@swc/helpers@0.5.15":
     resolution:
       {
@@ -925,6 +922,12 @@ packages:
     resolution:
       {
         integrity: sha512-orrrD74MBUyK8jOAD/r0+lfa1I2MO6I+vAkmAWzMYbCcgrN4lCrmK52gRFQq/JRxfYPfonkr4b0jcY7Olqdqbw==,
+      }
+
+  "@types/nodemailer@8.0.0":
+    resolution:
+      {
+        integrity: sha512-fyf8jWULsCo0d0BuoQ75i6IeoHs47qcqxWc7yUdUcV0pOZGjUTTOvwdG1PRXUDqN/8A64yQdQdnA2pZgcdi+cA==,
       }
 
   "@types/react-dom@19.2.3":
@@ -1849,12 +1852,6 @@ packages:
         integrity: sha512-DCXu6Ifhqcks7TZKY3Hxp3y6qphY5SJZmrWMDrKcERSOXWQdMhU9Ig/PYrzyw/ul9jOIyh0N4M0tbC5hodg8dw==,
       }
 
-  fast-sha256@1.3.0:
-    resolution:
-      {
-        integrity: sha512-n11RGP/lrWEFI/bWdygLxhI+pVeo1ZYIVwvvPkW7azl/rOy+F3HYRZ2K5zeE9mmkhQppyv9sQFx0JM9UabnpPQ==,
-      }
-
   fastq@1.20.1:
     resolution:
       {
@@ -2700,6 +2697,13 @@ packages:
         integrity: sha512-1h5gKZCF+pO/o3Iqt5Jp7wc9rH3eJJ0+nh/CIoiRwjRxde/hAHyLPXYN4V3CqKAbiZPSeJFSWHmJsbkicta0Eg==,
       }
 
+  nodemailer@8.0.5:
+    resolution:
+      {
+        integrity: sha512-0PF8Yb1yZuQfQbq+5/pZJrtF6WQcjTd5/S4JOHs9PGFxuTqoB/icwuB44pOdURHJbRKX1PPoJZtY7R4VUoCC8w==,
+      }
+    engines: { node: ">=6.0.0" }
+
   object-assign@4.1.1:
     resolution:
       {
@@ -2837,12 +2841,6 @@ packages:
         integrity: sha512-/+5VFTchJDoVj3bhoqi6UeymcD00DAwb1nJwamzPvHEszJ4FpF6SNNbUbOS8yI56qHzdV8eK0qEfOSiodkTdxg==,
       }
     engines: { node: ">= 0.4" }
-
-  postal-mime@2.7.4:
-    resolution:
-      {
-        integrity: sha512-0WdnFQYUrPGGTFu1uOqD2s7omwua8xaeYGdO6rb88oD5yJ/4pPHDA4sdWqfD8wQVfCny563n/HQS7zTFft+f/g==,
-      }
 
   postcss@8.4.31:
     resolution:
@@ -2995,18 +2993,6 @@ packages:
         integrity: sha512-dYqgNSZbDwkaJ2ceRd9ojCGjBq+mOm9LmtXnAnEGyHhN/5R7iDW2TRw3h+o/jCFxus3P2LfWIIiwowAjANm7IA==,
       }
     engines: { node: ">= 0.4" }
-
-  resend@6.12.0:
-    resolution:
-      {
-        integrity: sha512-CaxEvX1z+/MGbgnhsM/bvmkbnZd1v1sEXELAjBNSDBQNMaB7MgqOyrBgI27CYikEgdaDnBrXghAXYWTBs/h5Bw==,
-      }
-    engines: { node: ">=20" }
-    peerDependencies:
-      "@react-email/render": "*"
-    peerDependenciesMeta:
-      "@react-email/render":
-        optional: true
 
   resolve-from@4.0.0:
     resolution:
@@ -3181,12 +3167,6 @@ packages:
         integrity: sha512-+L3ccpzibovGXFK+Ap/f8LOS0ahMrHTf3xu7mMLSpEGU0EO9ucaysSylKo9eRDFNhWve/y275iPmIZ4z39a9iA==,
       }
 
-  standardwebhooks@1.0.0:
-    resolution:
-      {
-        integrity: sha512-BbHGOQK9olHPMvQNHWul6MYlrRTAOKn03rOe4A8O3CLWhNf4YHBqq2HJKKC+sfqpxiBY52pNeesD6jIiLDz8jg==,
-      }
-
   stop-iteration-iterator@1.1.0:
     resolution:
       {
@@ -3278,12 +3258,6 @@ packages:
         integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==,
       }
     engines: { node: ">= 0.4" }
-
-  svix@1.90.0:
-    resolution:
-      {
-        integrity: sha512-ljkZuyy2+IBEoESkIpn8sLM+sxJHQcPxlZFxU+nVDhltNfUMisMBzWX/UR8SjEnzoI28ZjCzMbmYAPwSTucoMw==,
-      }
 
   tailwindcss@4.2.2:
     resolution:
@@ -3419,13 +3393,6 @@ packages:
       {
         integrity: sha512-7rKUyy33Q1yc98pQ1DAmLtwX109F7TIfWlW1Ydo8Wl1ii1SeHieeh0HHfPeL2fMXK6z0s8ecKs9frCuLJvndBg==,
       }
-
-  uuid@10.0.0:
-    resolution:
-      {
-        integrity: sha512-8XkAphELsDnEGrDxUOHB3RGvXz6TeuYSGEZBOjtTtPm2lwhGBjLgOzLHB63IUWfBpNucQjND6d3AOudO+H3RWQ==,
-      }
-    hasBin: true
 
   which-boxed-primitive@1.1.1:
     resolution:
@@ -3854,8 +3821,6 @@ snapshots:
 
   "@rtsao/scc@1.1.0": {}
 
-  "@stablelib/base64@1.0.1": {}
-
   "@swc/helpers@0.5.15":
     dependencies:
       tslib: 2.8.1
@@ -3955,6 +3920,10 @@ snapshots:
   "@types/node@20.19.39":
     dependencies:
       undici-types: 6.21.0
+
+  "@types/nodemailer@8.0.0":
+    dependencies:
+      "@types/node": 20.19.39
 
   "@types/react-dom@19.2.3(@types/react@19.2.14)":
     dependencies:
@@ -4678,8 +4647,6 @@ snapshots:
 
   fast-levenshtein@2.0.6: {}
 
-  fast-sha256@1.3.0: {}
-
   fastq@1.20.1:
     dependencies:
       reusify: 1.1.0
@@ -5138,6 +5105,8 @@ snapshots:
 
   node-releases@2.0.37: {}
 
+  nodemailer@8.0.5: {}
+
   object-assign@4.1.1: {}
 
   object-inspect@1.13.4: {}
@@ -5221,8 +5190,6 @@ snapshots:
 
   possible-typed-array-names@1.1.0: {}
 
-  postal-mime@2.7.4: {}
-
   postcss@8.4.31:
     dependencies:
       nanoid: 3.3.11
@@ -5289,11 +5256,6 @@ snapshots:
       get-proto: 1.0.1
       gopd: 1.2.0
       set-function-name: 2.0.2
-
-  resend@6.12.0:
-    dependencies:
-      postal-mime: 2.7.4
-      svix: 1.90.0
 
   resolve-from@4.0.0: {}
 
@@ -5443,11 +5405,6 @@ snapshots:
 
   stable-hash@0.0.5: {}
 
-  standardwebhooks@1.0.0:
-    dependencies:
-      "@stablelib/base64": 1.0.1
-      fast-sha256: 1.3.0
-
   stop-iteration-iterator@1.1.0:
     dependencies:
       es-errors: 1.3.0
@@ -5519,11 +5476,6 @@ snapshots:
       has-flag: 4.0.0
 
   supports-preserve-symlinks-flag@1.0.0: {}
-
-  svix@1.90.0:
-    dependencies:
-      standardwebhooks: 1.0.0
-      uuid: 10.0.0
 
   tailwindcss@4.2.2: {}
 
@@ -5643,8 +5595,6 @@ snapshots:
   uri-js@4.4.1:
     dependencies:
       punycode: 2.3.1
-
-  uuid@10.0.0: {}
 
   which-boxed-primitive@1.1.1:
     dependencies:

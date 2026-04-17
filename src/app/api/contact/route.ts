@@ -1,13 +1,21 @@
 import { env } from "@/env"
 import { NextRequest, NextResponse } from "next/server"
-import { Resend } from "resend"
+import nodemailer from "nodemailer"
 
 export const dynamic = "force-dynamic"
 
+const transporter = nodemailer.createTransport({
+  host: env.SMTP_HOST,
+  port: env.SMTP_PORT,
+  secure: env.SMTP_PORT === 465,
+  auth: {
+    user: env.SMTP_USER,
+    pass: env.SMTP_PASS,
+  },
+})
+
 export async function POST(request: NextRequest) {
   try {
-    const resend = new Resend(env.RESEND_API_KEY)
-
     const body = await request.json()
     const { firstName, lastName, email, phone, company, subject, message } =
       body
@@ -20,9 +28,9 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    const { data, error } = await resend.emails.send({
-      from: "Future Offshore Website <onboarding@resend.dev>",
-      to: ["info@futureoffshore.co.uk"],
+    await transporter.sendMail({
+      from: env.SMTP_FROM,
+      to: env.SMTP_TO,
       subject: `New Enquiry: ${subject || "General Enquiry"} from ${firstName} ${lastName}`,
       html: `
         <h2>New Website Enquiry</h2>
@@ -37,14 +45,7 @@ export async function POST(request: NextRequest) {
       `,
     })
 
-    if (error) {
-      return NextResponse.json(
-        { error: "Failed to send email" },
-        { status: 500 },
-      )
-    }
-
-    return NextResponse.json({ success: true, data })
+    return NextResponse.json({ success: true })
   } catch (error) {
     return NextResponse.json(
       { error: "Internal server error" },
