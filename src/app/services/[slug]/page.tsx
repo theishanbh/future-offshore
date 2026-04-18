@@ -118,7 +118,7 @@ export default async function ServicePage({
                 </p>
                 <Link
                   href="/contact"
-                  className="gradient-bg text-navy inline-block rounded-lg px-6 py-3 font-bold transition-opacity hover:opacity-90"
+                  className="bg-navy hover:bg-navy/90 hover:shadow-navy/25 inline-block rounded-lg px-6 py-3 font-bold text-white shadow-lg transition-all"
                 >
                   Contact Us
                 </Link>

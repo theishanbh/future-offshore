@@ -1,7 +1,10 @@
 "use client"
 
+import { Button } from "@/components/ui/button"
+import { Card, CardContent } from "@/components/ui/card"
 import { getServicesByCategory, services } from "@/data/services"
 import { motion } from "framer-motion"
+import { ArrowRight } from "lucide-react"
 import Link from "next/link"
 
 const fadeInUp = {
@@ -19,25 +22,26 @@ function ServiceCard({ service }: { service: (typeof services)[0] }) {
   return (
     <motion.div variants={fadeInUp} transition={{ duration: 0.5 }}>
       <Link href={`/services/${service.slug}`} className="group block">
-        <div className="overflow-hidden rounded-xl bg-white shadow-lg transition-shadow duration-300 hover:shadow-xl">
+        <Card className="overflow-hidden transition-shadow duration-300 hover:shadow-xl">
           <div className="gradient-bg h-[3px]" />
           <img
             src={service.image}
             alt={service.title}
             className="h-48 w-full object-cover"
           />
-          <div className="p-6">
-            <h3 className="text-navy mb-2 text-xl font-black">
+          <CardContent className="p-6">
+            <h3 className="text-primary mb-2 text-xl font-black">
               {service.title}
             </h3>
-            <p className="mb-4 text-sm leading-relaxed text-gray-600">
+            <p className="text-muted-foreground mb-4 text-sm leading-relaxed">
               {service.shortDescription}
             </p>
-            <span className="text-fo-blue inline-block text-sm font-semibold transition-transform group-hover:translate-x-1">
-              Learn More &rarr;
-            </span>
-          </div>
-        </div>
+            <Button variant="link" tabIndex={-1}>
+              Learn More
+              <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
+            </Button>
+          </CardContent>
+        </Card>
       </Link>
     </motion.div>
   )
@@ -63,7 +67,7 @@ function CategorySection({
       <motion.h2
         variants={fadeInUp}
         transition={{ duration: 0.5 }}
-        className="text-navy mb-10 text-3xl font-black md:text-4xl"
+        className="text-primary mb-10 text-3xl font-black md:text-4xl"
       >
         {title}
       </motion.h2>
@@ -104,7 +108,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Services */}
-      <section className="bg-gray-50 py-20 md:py-28">
+      <section className="bg-muted py-20 md:py-28">
         <div className="mx-auto max-w-7xl px-4">
           <CategorySection title="Project Support" category="project-support" />
           <CategorySection
