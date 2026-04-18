@@ -4,14 +4,17 @@
   "private": true,
   "scripts": {
     "build": "SKIP_ENV_VALIDATION=1 next build",
+    "deploy": "SKIP_ENV_VALIDATION=1 opennextjs-cloudflare build && opennextjs-cloudflare deploy",
     "dev": "infisical run --env=dev -- next dev",
     "format:check": "prettier --check .",
     "format:write": "prettier --write .",
     "lint": "eslint",
+    "preview": "SKIP_ENV_VALIDATION=1 opennextjs-cloudflare build && infisical export --env=dev --format=dotenv > .dev.vars && opennextjs-cloudflare preview",
     "start": "next start"
   },
   "dependencies": {
     "@base-ui/react": "^1.4.0",
+    "@opennextjs/cloudflare": "^1.19.1",
     "@t3-oss/env-nextjs": "^0.13.11",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
@@ -40,7 +43,8 @@
     "prettier-plugin-packagejson": "^3.0.2",
     "prettier-plugin-tailwindcss": "^0.7.2",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "typescript": "^5",
+    "wrangler": "^4.83.0"
   },
   "packageManager": "pnpm@10.32.1"
 }
