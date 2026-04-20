@@ -88,7 +88,7 @@ export default function ContactPage() {
   return (
     <main>
       {/* Hero */}
-      <section className="bg-navy py-24 text-white md:py-32">
+      <section className="bg-navy pt-36 pb-24 text-white md:pt-44 md:pb-32">
         <div className="mx-auto max-w-7xl px-6 text-center">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
@@ -297,7 +297,7 @@ export default function ContactPage() {
                   Follow Us
                 </h3>
                 <a
-                  href="https://linkedin.com"
+                  href="https://www.linkedin.com/company/future-offshore/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-accent hover:text-primary inline-flex items-center gap-2 font-semibold transition-colors"

@@ -98,7 +98,7 @@ export const projects: Project[] = [
       "Operational testing",
     ],
     image:
-      "https://images.unsplash.com/photo-1587293852726-70cdb56c2866?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1574015974293-817f0ebebb74?auto=format&fit=crop&w=800&q=80",
   },
   {
     slug: "quality-system-implementation",

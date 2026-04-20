@@ -48,7 +48,7 @@ export const services: Service[] = [
       "Change management processes",
     ],
     image:
-      "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&w=800&q=80",
   },
   {
     slug: "quality-management",
@@ -68,7 +68,7 @@ export const services: Service[] = [
       "Audit readiness preparation",
     ],
     image:
-      "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1562281302-809108fd533c?auto=format&fit=crop&w=800&q=80",
   },
   {
     slug: "engineering-services",
@@ -88,7 +88,7 @@ export const services: Service[] = [
       "Operational engineering support",
     ],
     image:
-      "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=800&q=80",
   },
   {
     slug: "pipelay-equipment",
@@ -108,7 +108,7 @@ export const services: Service[] = [
       "Commissioning and operational support",
     ],
     image:
-      "https://images.unsplash.com/photo-1590846406792-0adc7f938f1d?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=800&q=80",
   },
   {
     slug: "cable-lay-equipment",
@@ -128,7 +128,7 @@ export const services: Service[] = [
       "Route engineering support",
     ],
     image:
-      "https://images.unsplash.com/photo-1532601224476-15c79f2f7a51?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=800&q=80",
   },
   {
     slug: "subsea-tools",
@@ -148,7 +148,7 @@ export const services: Service[] = [
       "Operational procedure development",
     ],
     image:
-      "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1587293852726-70cdb56c2866?auto=format&fit=crop&w=800&q=80",
   },
   {
     slug: "project-delivery",
@@ -168,7 +168,7 @@ export const services: Service[] = [
       "Field support and commissioning",
     ],
     image:
-      "https://images.unsplash.com/photo-1587293852726-70cdb56c2866?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1590959651373-a3db0f38a961?auto=format&fit=crop&w=800&q=80",
   },
 ]
 
