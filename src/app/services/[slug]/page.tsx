@@ -36,10 +36,11 @@ export default async function ServicePage({
 
   return (
     <>
-      {/* Breadcrumb */}
-      <div className="bg-navy/95 pt-6 pb-0">
+      {/* Hero */}
+      <section className="bg-navy pt-32 pb-16 md:pt-40 md:pb-24">
         <div className="mx-auto max-w-7xl px-4">
-          <nav className="flex items-center gap-2 text-sm text-gray-400">
+          {/* Breadcrumb */}
+          <nav className="mb-8 flex items-center gap-2 text-sm text-gray-400">
             <Link href="/" className="transition-colors hover:text-white">
               Home
             </Link>
@@ -53,12 +54,6 @@ export default async function ServicePage({
             <span>/</span>
             <span className="text-white">{service.title}</span>
           </nav>
-        </div>
-      </div>
-
-      {/* Hero */}
-      <section className="bg-navy py-16 md:py-24">
-        <div className="mx-auto max-w-7xl px-4">
           <span className="text-fo-green mb-4 inline-block text-sm font-semibold tracking-wider uppercase">
             {service.categoryLabel}
           </span>
@@ -74,7 +69,7 @@ export default async function ServicePage({
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-3">
             {/* Left: Description + Features */}
             <div className="lg:col-span-2">
-              <p className="mb-10 text-lg leading-relaxed text-gray-700">
+              <p className="text-muted-foreground mb-10 text-lg leading-relaxed">
                 {service.fullDescription}
               </p>
 
@@ -97,7 +92,7 @@ export default async function ServicePage({
                         d="M5 13l4 4L19 7"
                       />
                     </svg>
-                    <span className="text-gray-700">{feature}</span>
+                    <span className="text-muted-foreground">{feature}</span>
                   </li>
                 ))}
               </ul>
@@ -118,7 +113,7 @@ export default async function ServicePage({
                 </p>
                 <Link
                   href="/contact"
-                  className="bg-navy hover:bg-navy/90 hover:shadow-navy/25 inline-block rounded-lg px-6 py-3 font-bold text-white shadow-lg transition-all"
+                  className="gradient-bg inline-block rounded-lg px-6 py-3 font-bold text-white shadow-lg transition-all hover:opacity-90"
                 >
                   Contact Us
                 </Link>
@@ -129,7 +124,7 @@ export default async function ServicePage({
       </section>
 
       {/* Other Services */}
-      <section className="bg-gray-50 py-16 md:py-24">
+      <section className="bg-muted py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-4">
           <h2 className="text-navy mb-10 text-3xl font-black">
             Other Services
@@ -141,7 +136,7 @@ export default async function ServicePage({
                 href={`/services/${s.slug}`}
                 className="group block"
               >
-                <div className="overflow-hidden rounded-xl bg-white shadow-lg transition-shadow duration-300 hover:shadow-xl">
+                <div className="bg-card overflow-hidden rounded-xl shadow-lg transition-shadow duration-300 hover:shadow-xl">
                   <div className="gradient-bg h-[3px]" />
                   <img
                     src={s.image}
@@ -155,7 +150,7 @@ export default async function ServicePage({
                     <h3 className="text-navy mt-1 mb-2 text-lg font-black">
                       {s.title}
                     </h3>
-                    <p className="line-clamp-2 text-sm text-gray-600">
+                    <p className="text-muted-foreground line-clamp-2 text-sm">
                       {s.shortDescription}
                     </p>
                   </div>

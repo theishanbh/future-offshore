@@ -1,9 +1,9 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
-import { motion } from "framer-motion"
+import { AnimatePresence, motion } from "framer-motion"
 import {
+  ArrowRight,
   CheckCircle,
   ChevronDown,
   ClipboardList,
@@ -14,6 +14,7 @@ import {
   Wrench,
 } from "lucide-react"
 import Link from "next/link"
+import { useCallback, useEffect, useState } from "react"
 
 const fadeInUp = {
   initial: { opacity: 0, y: 30 },
@@ -29,16 +30,57 @@ function stagger(delay: number) {
   }
 }
 
-/* ───────────────────────── Hero ───────────────────────── */
+/* ───────────────────────── Hero Carousel ───────────────────────── */
+const heroImages = [
+  {
+    src: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1920&q=80",
+    alt: "Deep blue ocean stretching to the horizon",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1559825481-12a05cc00344?auto=format&fit=crop&w=1920&q=80",
+    alt: "Ocean waves at sunset",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1530177150700-84cd9a3b059b?auto=format&fit=crop&w=1920&q=80",
+    alt: "Cargo ship on open sea",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1605745341112-85968b19335b?auto=format&fit=crop&w=1920&q=80",
+    alt: "Offshore engineering vessel",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1513553404607-988bf2703777?auto=format&fit=crop&w=1920&q=80",
+    alt: "Ship at sea during golden hour",
+  },
+]
+
 function Hero() {
+  const [current, setCurrent] = useState(0)
+
+  const next = useCallback(() => {
+    setCurrent((prev) => (prev + 1) % heroImages.length)
+  }, [])
+
+  useEffect(() => {
+    const timer = setInterval(next, 6000)
+    return () => clearInterval(timer)
+  }, [next])
+
   return (
     <section className="relative flex min-h-screen items-center justify-center overflow-hidden">
-      {/* bg image + overlay */}
-      <img
-        src="https://images.unsplash.com/photo-1590846406792-0adc7f938f1d?auto=format&fit=crop&w=1920&q=80"
-        alt="Offshore platform"
-        className="absolute inset-0 h-full w-full object-cover"
-      />
+      {/* carousel images */}
+      <AnimatePresence mode="popLayout">
+        <motion.img
+          key={current}
+          src={heroImages[current].src}
+          alt={heroImages[current].alt}
+          className="absolute inset-0 h-full w-full object-cover"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1.2, ease: "easeInOut" }}
+        />
+      </AnimatePresence>
       <div className="bg-navy/70 absolute inset-0" />
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 text-center">
@@ -96,6 +138,20 @@ function Hero() {
         </motion.div>
       </div>
 
+      {/* carousel indicators */}
+      <div className="absolute bottom-16 left-1/2 z-10 flex -translate-x-1/2 gap-2">
+        {heroImages.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setCurrent(i)}
+            className={`h-2 rounded-full transition-all duration-300 ${
+              i === current ? "gradient-bg w-8" : "w-2 bg-white/40"
+            }`}
+            aria-label={`Go to slide ${i + 1}`}
+          />
+        ))}
+      </div>
+
       {/* scroll indicator */}
       <motion.div
         className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2"
@@ -139,8 +195,8 @@ function AboutIntro() {
 
         <motion.div {...fadeInUp} transition={{ duration: 0.6, delay: 0.2 }}>
           <img
-            src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80"
-            alt="Offshore engineering team"
+            src="https://images.unsplash.com/photo-1605745341112-85968b19335b?auto=format&fit=crop&w=800&q=80"
+            alt="Offshore engineering crew on vessel"
             className="h-auto w-full rounded-2xl object-cover shadow-lg"
           />
         </motion.div>
@@ -156,24 +212,28 @@ const services = [
     description:
       "Client representation, project management, and quality oversight to safeguard your project interests.",
     icon: ClipboardList,
+    href: "/services",
   },
   {
     title: "Technical Support",
     description:
       "Expert engineering for pipelay, cable lay, and subsea equipment systems.",
     icon: Wrench,
+    href: "/services",
   },
   {
     title: "Engineering Services",
     description:
       "From concept development to detailed design and operational engineering.",
     icon: Film,
+    href: "/services",
   },
   {
     title: "Project Delivery",
     description:
       "20+ years delivering offshore projects through the full lifecycle.",
     icon: Rocket,
+    href: "/services",
   },
 ]
 
@@ -190,37 +250,38 @@ function ServicesOverview() {
           </h2>
         </motion.div>
 
-        <div className="grid gap-8 sm:grid-cols-2">
+        <div className="grid gap-6 sm:grid-cols-2">
           {services.map((s, i) => (
             <motion.div
               key={s.title}
               {...fadeInUp}
               transition={{ duration: 0.6, delay: i * 0.15 }}
             >
-              <Card className="group relative overflow-hidden transition-shadow hover:shadow-xl">
-                {/* top gradient border */}
-                <div className="gradient-bg absolute top-0 right-0 left-0 h-[3px]" />
-                <CardHeader>
-                  <s.icon className="text-accent size-10" />
-                </CardHeader>
-                <CardContent>
-                  <h3 className="text-primary mb-3 text-xl font-black">
-                    {s.title}
-                  </h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    {s.description}
-                  </p>
-                </CardContent>
-                <CardFooter>
-                  <Button
-                    variant="link"
-                    nativeButton={false}
-                    render={<Link href="/services" />}
-                  >
-                    Learn More &rarr;
-                  </Button>
-                </CardFooter>
-              </Card>
+              <Link href={s.href} className="group block h-full">
+                <div className="bg-navy flex h-full flex-col justify-between rounded-2xl p-8 transition-all duration-300 hover:shadow-2xl sm:p-10">
+                  {/* Icon */}
+                  <div>
+                    <div className="text-fo-green mb-6">
+                      <s.icon className="size-12" strokeWidth={1.5} />
+                    </div>
+                    {/* Title */}
+                    <h3 className="mb-4 text-2xl font-black text-white">
+                      {s.title}
+                    </h3>
+                    {/* Description */}
+                    <p className="mb-8 leading-relaxed text-white/70">
+                      {s.description}
+                    </p>
+                  </div>
+                  {/* CTA */}
+                  <div className="flex items-center gap-2">
+                    <ArrowRight className="group-hover:text-fo-green size-5 text-white/50 transition-all duration-300 group-hover:translate-x-1" />
+                    <span className="group-hover:text-fo-green text-sm font-semibold tracking-wide text-white/50 uppercase transition-colors duration-300">
+                      {s.title}
+                    </span>
+                  </div>
+                </div>
+              </Link>
             </motion.div>
           ))}
         </div>
@@ -239,20 +300,52 @@ const stats = [
 
 function Stats() {
   return (
-    <section className="bg-navy relative overflow-hidden py-24">
-      {/* subtle pattern overlay */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,white_1px,transparent_0)] bg-[size:40px_40px] opacity-5" />
-      <div className="relative mx-auto grid max-w-7xl grid-cols-2 gap-10 px-4 text-center md:grid-cols-4">
-        {stats.map((s, i) => (
-          <motion.div
-            key={s.label}
-            {...fadeInUp}
-            transition={{ duration: 0.6, delay: i * 0.15 }}
-          >
-            <p className="gradient-text mb-2 text-5xl font-black">{s.value}</p>
-            <p className="text-sm tracking-wide text-white/80">{s.label}</p>
+    <section className="bg-background py-24">
+      <div className="mx-auto max-w-7xl px-4">
+        <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-[1fr_1.5fr]">
+          {/* Left: text */}
+          <motion.div {...fadeInUp}>
+            <p className="text-fo-green mb-4 text-sm font-semibold tracking-widest uppercase">
+              Why Future Offshore
+            </p>
+            <h2 className="text-primary mb-6 text-3xl leading-tight font-black sm:text-4xl">
+              We&apos;ve Got Your Back &mdash; We&apos;ve Been There
+            </h2>
+            <p className="text-muted-foreground mb-8 leading-relaxed">
+              With decades of hands-on offshore engineering experience, our team
+              has delivered some of the most advanced pipelay, cable lay, and
+              subsea systems in operation today. We bring that expertise
+              directly to your project.
+            </p>
+            <Button
+              size="pill"
+              nativeButton={false}
+              render={<Link href="/about" />}
+            >
+              Learn More
+            </Button>
           </motion.div>
-        ))}
+
+          {/* Right: 2x2 stats grid */}
+          <div className="grid grid-cols-2 gap-8">
+            {stats.map((s, i) => (
+              <motion.div
+                key={s.label}
+                {...fadeInUp}
+                transition={{ duration: 0.6, delay: i * 0.15 }}
+                className="text-center"
+              >
+                <p className="gradient-text mb-3 text-5xl font-black sm:text-6xl">
+                  {s.value}
+                </p>
+                <div className="gradient-bg mx-auto mb-3 h-[2px] w-16" />
+                <p className="text-muted-foreground text-sm tracking-wide">
+                  {s.label}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   )
@@ -282,7 +375,7 @@ const values = [
 
 function CoreValues() {
   return (
-    <section className="bg-background py-24">
+    <section className="bg-muted py-24">
       <div className="mx-auto max-w-7xl px-4">
         <motion.div {...fadeInUp} className="mb-16 text-center">
           <h2 className="text-primary text-3xl font-black sm:text-4xl">
@@ -315,40 +408,191 @@ function CoreValues() {
   )
 }
 
+/* ───────────────────────── Testimonials ───────────────────────── */
+const testimonials = [
+  {
+    quote:
+      "Future Offshore provided outstanding technical oversight on our pipelay system upgrade. Their attention to detail and deep engineering knowledge ensured we delivered on time and to specification.",
+    name: "James Henderson",
+    role: "Project Manager",
+    company: "North Sea Energy Ltd",
+    photo:
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80",
+  },
+  {
+    quote:
+      "Working with Future Offshore felt like having an extension of our own team. Their collaborative approach and transparency throughout the project gave us complete confidence in the outcome.",
+    name: "Sarah Mitchell",
+    role: "Operations Director",
+    company: "Atlantic Subsea Solutions",
+    photo:
+      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80",
+  },
+  {
+    quote:
+      "The engineering expertise Future Offshore brought to our cable lay spread design was exceptional. They delivered innovative solutions that significantly improved our operational efficiency.",
+    name: "David Park",
+    role: "Chief Engineer",
+    company: "Meridian Offshore Group",
+    photo:
+      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=200&q=80",
+  },
+  {
+    quote:
+      "Future Offshore's client representation services were invaluable. They safeguarded our interests throughout a complex manufacturing programme and kept us informed at every stage.",
+    name: "Laura Chen",
+    role: "VP of Projects",
+    company: "Pacific Marine Systems",
+    photo:
+      "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=200&q=80",
+  },
+]
+
+function Testimonials() {
+  const [current, setCurrent] = useState(0)
+
+  const next = useCallback(() => {
+    setCurrent((prev) => (prev + 1) % testimonials.length)
+  }, [])
+
+  useEffect(() => {
+    const timer = setInterval(next, 7000)
+    return () => clearInterval(timer)
+  }, [next])
+
+  return (
+    <section className="bg-background py-24">
+      <div className="mx-auto max-w-7xl px-4">
+        <motion.div {...fadeInUp} className="mb-16 text-center">
+          <p className="text-fo-green mb-4 text-sm font-semibold tracking-widest uppercase">
+            Testimonials
+          </p>
+          <h2 className="text-primary text-3xl font-black sm:text-4xl">
+            What Our Clients Say
+          </h2>
+        </motion.div>
+
+        <div className="relative mx-auto max-w-4xl">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={current}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.5, ease: "easeInOut" }}
+              className="text-center"
+            >
+              {/* Quote mark */}
+              <div className="gradient-text mb-6 text-7xl leading-none font-black select-none">
+                &ldquo;
+              </div>
+
+              <p className="text-primary mb-8 text-lg leading-relaxed italic sm:text-xl md:text-2xl">
+                {testimonials[current].quote}
+              </p>
+
+              <div className="flex flex-col items-center gap-3">
+                <img
+                  src={testimonials[current].photo}
+                  alt={testimonials[current].name}
+                  className="size-16 rounded-full object-cover shadow-md"
+                />
+                <div>
+                  <p className="text-primary text-base font-black">
+                    {testimonials[current].name}
+                  </p>
+                  <p className="text-muted-foreground text-sm">
+                    {testimonials[current].role},{" "}
+                    {testimonials[current].company}
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+          </AnimatePresence>
+
+          {/* Indicators */}
+          <div className="mt-10 flex justify-center gap-2">
+            {testimonials.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setCurrent(i)}
+                className={`h-2 rounded-full transition-all duration-300 ${
+                  i === current ? "gradient-bg w-8" : "w-2 bg-gray-300"
+                }`}
+                aria-label={`Go to testimonial ${i + 1}`}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
 /* ───────────────────────── CTA Banner ───────────────────────── */
 function CTABanner() {
   return (
-    <section className="relative overflow-hidden">
-      {/* wave top */}
-      <div className="absolute top-0 right-0 left-0">
-        <svg viewBox="0 0 1440 60" fill="none" className="w-full">
-          <path
-            d="M0 60V0c240 40 480 60 720 40S1200 0 1440 30v30H0z"
-            className="fill-background"
-          />
-        </svg>
-      </div>
-      <div className="gradient-bg pt-20 pb-24">
-        <motion.div
-          {...fadeInUp}
-          className="mx-auto max-w-7xl px-4 text-center"
-        >
-          <h2 className="mb-4 text-3xl font-black text-white sm:text-4xl">
-            Ready to Start Your Next Project?
-          </h2>
-          <p className="mx-auto mb-8 max-w-2xl text-lg text-white/90">
-            Let&apos;s discuss how Future Offshore can support your engineering
-            needs.
-          </p>
-          <Button
-            variant="white"
-            size="pill"
-            nativeButton={false}
-            render={<Link href="/contact" />}
+    <section className="relative isolate overflow-hidden py-28 sm:py-32">
+      {/* Background image */}
+      <img
+        src="https://images.unsplash.com/photo-1559825481-12a05cc00344?auto=format&fit=crop&w=1920&q=80"
+        alt=""
+        className="absolute inset-0 -z-20 h-full w-full object-cover"
+      />
+      <div className="bg-navy/80 absolute inset-0 -z-10" />
+
+      {/* Decorative blurred orbs */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -top-32 left-1/4 -z-10 size-[500px] rounded-full bg-[#b4d337]/10 blur-[120px]"
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute right-1/4 -bottom-32 -z-10 size-[400px] rounded-full bg-[#00aeef]/10 blur-[120px]"
+      />
+
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
+          {/* Left: text */}
+          <motion.div {...fadeInUp}>
+            <p className="text-fo-green mb-4 text-sm font-semibold tracking-widest uppercase">
+              Get in Touch
+            </p>
+            <h2 className="mb-6 text-3xl leading-tight font-black text-white sm:text-4xl lg:text-5xl">
+              Ready to Start Your
+              <br />
+              <span className="gradient-text">Next Project?</span>
+            </h2>
+            <p className="mb-10 max-w-lg text-lg leading-relaxed text-white/70">
+              Whether you need engineering expertise, project management
+              support, or end-to-end delivery, our team is ready to help.
+              Let&apos;s discuss how Future Offshore can support your goals.
+            </p>
+            <div className="flex flex-col gap-4 sm:flex-row">
+              <Button
+                variant="accent"
+                size="pill"
+                nativeButton={false}
+                render={<Link href="/contact" />}
+              >
+                Contact Us
+              </Button>
+            </div>
+          </motion.div>
+
+          {/* Right: hardhat image */}
+          <motion.div
+            {...fadeInUp}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="hidden lg:block"
           >
-            Contact Us
-          </Button>
-        </motion.div>
+            <img
+              src="/images/fo-hardhat.webp"
+              alt="Future Offshore hardhat"
+              className="mx-auto max-w-sm rounded-2xl object-cover shadow-2xl"
+            />
+          </motion.div>
+        </div>
       </div>
     </section>
   )
@@ -363,6 +607,7 @@ export default function Home() {
       <ServicesOverview />
       <Stats />
       <CoreValues />
+      <Testimonials />
       <CTABanner />
     </main>
   )

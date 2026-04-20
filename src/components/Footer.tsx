@@ -23,16 +23,16 @@ export default function Footer() {
   return (
     <footer className="bg-navy text-white">
       {/* Main Footer */}
-      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 md:py-16 lg:px-8">
-        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 md:py-24 lg:px-8">
+        <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-4 lg:gap-16">
           {/* Company Info */}
           <div>
             <Image
-              src="/images/logos/logo-mark.jpg"
+              src="/images/logos/primary-logo-colour-white-no-tag.svg"
               alt="Future Offshore"
               width={140}
               height={50}
-              className="mb-4 h-[50px] w-auto"
+              className="mb-6 h-[50px] w-auto"
             />
             <p className="text-sm leading-relaxed text-white/70">
               Future Offshore delivers innovative engineering solutions and
@@ -43,10 +43,10 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="mb-4 text-base font-semibold tracking-wide uppercase">
+            <h4 className="mb-6 text-base font-semibold tracking-wide uppercase">
               Quick Links
             </h4>
-            <ul className="space-y-2">
+            <ul className="space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.href}>
                   <Link
@@ -62,10 +62,10 @@ export default function Footer() {
 
           {/* Services */}
           <div>
-            <h4 className="mb-4 text-base font-semibold tracking-wide uppercase">
+            <h4 className="mb-6 text-base font-semibold tracking-wide uppercase">
               Services
             </h4>
-            <ul className="space-y-2">
+            <ul className="space-y-3">
               {services.map((service) => (
                 <li key={service}>
                   <span className="text-sm text-white/70">{service}</span>
@@ -76,10 +76,10 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="mb-4 text-base font-semibold tracking-wide uppercase">
+            <h4 className="mb-6 text-base font-semibold tracking-wide uppercase">
               Contact
             </h4>
-            <ul className="space-y-2 text-sm text-white/70">
+            <ul className="space-y-3 text-sm text-white/70">
               <li>
                 <a
                   href="mailto:info@futureoffshore.co.uk"
@@ -106,9 +106,10 @@ export default function Footer() {
       <Separator className="gradient-bg h-[3px] border-none" />
 
       {/* Bottom Bar */}
-      <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-4 py-4 sm:flex-row sm:px-6 lg:px-8">
+      <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-4 py-6 sm:flex-row sm:px-6 lg:px-8">
         <p className="text-xs text-white/50">
-          &copy; 2024 Future Offshore. All rights reserved.
+          &copy; {new Date().getFullYear()} Future Offshore. All rights
+          reserved.
         </p>
 
         {/* Social Icons */}
@@ -118,7 +119,14 @@ export default function Footer() {
             size="icon"
             className="hover:text-fo-green text-white/50 hover:bg-white/10"
             nativeButton={false}
-            render={<a href="#" aria-label="LinkedIn" />}
+            render={
+              <a
+                href="https://www.linkedin.com/company/future-offshore/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+              />
+            }
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
