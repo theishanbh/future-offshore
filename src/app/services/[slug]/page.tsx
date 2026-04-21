@@ -103,7 +103,7 @@ export default async function ServicePage({
               <img
                 src={service.image}
                 alt={service.title}
-                className="h-64 w-full rounded-xl object-cover shadow-lg"
+                className={`h-64 w-full rounded-xl object-cover shadow-lg ${service.imagePosition ? `object-${service.imagePosition}` : ""}`}
               />
               <div className="bg-navy rounded-xl p-8 text-white">
                 <h3 className="mb-3 text-xl font-black">Get in Touch</h3>

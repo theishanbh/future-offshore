@@ -27,7 +27,7 @@ function ServiceCard({ service }: { service: (typeof services)[0] }) {
             <img
               src={service.image}
               alt={service.title}
-              className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              className={`h-full w-full object-cover transition-transform duration-500 group-hover:scale-105 ${service.imagePosition ? `object-${service.imagePosition}` : ""}`}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
             <div className="absolute right-0 bottom-0 left-0 p-5">
@@ -133,11 +133,11 @@ export default function ServicesPage() {
       {/* Services */}
       <section className="bg-muted py-20 md:py-28">
         <div className="mx-auto max-w-7xl px-4">
-          <CategorySection title="Project Support" category="project-support" />
           <CategorySection
             title="Technical Support"
             category="technical-support"
           />
+          <CategorySection title="Project Support" category="project-support" />
         </div>
       </section>
     </>

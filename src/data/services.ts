@@ -7,6 +7,7 @@ export interface Service {
   fullDescription: string
   features: string[]
   image: string
+  imagePosition?: string
 }
 
 export const services: Service[] = [
@@ -27,8 +28,7 @@ export const services: Service[] = [
       "Regular progress reporting",
       "Specification adherence verification",
     ],
-    image:
-      "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80",
+    image: "/images/services/aswin-anand.webp",
   },
   {
     slug: "project-management",
@@ -47,8 +47,7 @@ export const services: Service[] = [
       "Resource coordination",
       "Change management processes",
     ],
-    image:
-      "https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&w=800&q=80",
+    image: "/images/services/bulkan-evcimen.webp",
   },
   {
     slug: "quality-management",
@@ -56,7 +55,7 @@ export const services: Service[] = [
     category: "project-support",
     categoryLabel: "Project Support",
     shortDescription:
-      "QMS Lead Auditor ISO9001 training to support client or supplier readiness and audit requirements.",
+      "Lead Auditor ISO9001 trained personnel to support client or supplier readiness and audit requirements.",
     fullDescription:
       "Future Offshore provides quality management support with ISO 9001 Lead Auditor qualified professionals. We help clients and suppliers achieve and maintain quality management system readiness, conduct internal and external audits, and implement continuous improvement processes. Our approach ensures your operations meet the highest industry standards.",
     features: [
@@ -67,8 +66,7 @@ export const services: Service[] = [
       "Non-conformance management",
       "Audit readiness preparation",
     ],
-    image:
-      "https://images.unsplash.com/photo-1562281302-809108fd533c?auto=format&fit=crop&w=800&q=80",
+    image: "/images/services/christopher-burns.webp",
   },
   {
     slug: "engineering-services",
@@ -87,8 +85,7 @@ export const services: Service[] = [
       "Design verification and validation",
       "Operational engineering support",
     ],
-    image:
-      "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=800&q=80",
+    image: "/images/services/eric-prouzet.webp",
   },
   {
     slug: "pipelay-equipment",
@@ -107,8 +104,7 @@ export const services: Service[] = [
       "System upgrades and modifications",
       "Commissioning and operational support",
     ],
-    image:
-      "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=800&q=80",
+    image: "/images/services/fo-macbook-mockup.webp",
   },
   {
     slug: "cable-lay-equipment",
@@ -127,8 +123,8 @@ export const services: Service[] = [
       "Offshore wind cable systems",
       "Route engineering support",
     ],
-    image:
-      "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=800&q=80",
+    image: "/images/services/marianna-krzakiewicz.webp",
+    imagePosition: "bottom",
   },
   {
     slug: "subsea-tools",
@@ -147,8 +143,7 @@ export const services: Service[] = [
       "Equipment qualification testing",
       "Operational procedure development",
     ],
-    image:
-      "https://images.unsplash.com/photo-1587293852726-70cdb56c2866?auto=format&fit=crop&w=800&q=80",
+    image: "/images/services/pexels-izafi.webp",
   },
   {
     slug: "project-delivery",
@@ -167,8 +162,7 @@ export const services: Service[] = [
       "Site integration testing (SIT)",
       "Field support and commissioning",
     ],
-    image:
-      "https://images.unsplash.com/photo-1590959651373-a3db0f38a961?auto=format&fit=crop&w=800&q=80",
+    image: "/images/services/sven-mieke.webp",
   },
 ]
 

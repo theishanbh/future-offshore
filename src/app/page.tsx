@@ -195,8 +195,8 @@ function AboutIntro() {
 
         <motion.div {...fadeInUp} transition={{ duration: 0.6, delay: 0.2 }}>
           <img
-            src="https://images.unsplash.com/photo-1605745341112-85968b19335b?auto=format&fit=crop&w=800&q=80"
-            alt="Offshore engineering crew on vessel"
+            src="/images/alan-arseven.webp"
+            alt="Offshore vessel at sea"
             className="h-auto w-full rounded-2xl object-cover shadow-lg"
           />
         </motion.div>
@@ -291,18 +291,11 @@ function ServicesOverview() {
 }
 
 /* ───────────────────────── Stats ───────────────────────── */
-const stats = [
-  { value: "20+", label: "Years Experience" },
-  { value: "100+", label: "Projects Delivered" },
-  { value: "50+", label: "Global Clients" },
-  { value: "2", label: "Industry Leaders" },
-]
-
 function Stats() {
   return (
     <section className="bg-background py-24">
       <div className="mx-auto max-w-7xl px-4">
-        <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-[1fr_1.5fr]">
+        <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-[1fr_1fr]">
           {/* Left: text */}
           <motion.div {...fadeInUp}>
             <p className="text-fo-green mb-4 text-sm font-semibold tracking-widest uppercase">
@@ -326,25 +319,22 @@ function Stats() {
             </Button>
           </motion.div>
 
-          {/* Right: 2x2 stats grid */}
-          <div className="grid grid-cols-2 gap-8">
-            {stats.map((s, i) => (
-              <motion.div
-                key={s.label}
-                {...fadeInUp}
-                transition={{ duration: 0.6, delay: i * 0.15 }}
-                className="text-center"
-              >
-                <p className="gradient-text mb-3 text-5xl font-black sm:text-6xl">
-                  {s.value}
-                </p>
-                <div className="gradient-bg mx-auto mb-3 h-[2px] w-16" />
-                <p className="text-muted-foreground text-sm tracking-wide">
-                  {s.label}
-                </p>
-              </motion.div>
-            ))}
-          </div>
+          {/* Right: highlight stat */}
+          <motion.div
+            {...fadeInUp}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="flex items-center justify-center"
+          >
+            <div className="text-center">
+              <p className="gradient-text mb-4 text-7xl font-black sm:text-8xl">
+                40+
+              </p>
+              <div className="gradient-bg mx-auto mb-4 h-[2px] w-24" />
+              <p className="text-muted-foreground text-lg tracking-wide">
+                Years of Combined Industry Experience
+              </p>
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>
@@ -607,7 +597,6 @@ export default function Home() {
       <ServicesOverview />
       <Stats />
       <CoreValues />
-      <Testimonials />
       <CTABanner />
     </main>
   )

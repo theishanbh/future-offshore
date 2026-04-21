@@ -158,8 +158,8 @@ export default function AboutPage() {
             </motion.div>
             <motion.div variants={fadeInUp}>
               <img
-                src="https://images.unsplash.com/photo-1605745341112-85968b19335b?auto=format&fit=crop&w=800&q=80"
-                alt="Offshore engineering team at work"
+                src="/images/iyan-ryan.webp"
+                alt="Offshore vessel at sea"
                 className="h-72 w-full rounded-xl object-cover shadow-lg lg:h-[500px]"
               />
             </motion.div>

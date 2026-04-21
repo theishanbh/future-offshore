@@ -1,36 +1,74 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Future Offshore
+
+Corporate website for **Future Offshore** — an offshore engineering company providing personalised, flexible, and innovation-driven services.
+
+Built with Next.js, Tailwind CSS, and Framer Motion.
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+pnpm install
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the site.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Other Commands
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+pnpm build          # Production build
+pnpm format:write   # Format code with Prettier (run before committing)
+```
 
-## Learn More
+## Pages
 
-To learn more about Next.js, take a look at the following resources:
+| Page           | Route              | Description                                                                    |
+| -------------- | ------------------ | ------------------------------------------------------------------------------ |
+| Home           | `/`                | Hero carousel, about intro, services overview, stats, core values, CTA         |
+| About          | `/about`           | Company info, quote, mission, experience, leadership, values, quality & safety |
+| Services       | `/services`        | Service cards grouped by category (Project Support, Technical Support)         |
+| Service Detail | `/services/[slug]` | Individual service pages with features, image, and CTA                         |
+| Contact        | `/contact`         | Contact form and company details                                               |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Currently Disabled
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The following features are built but currently disabled/hidden from the live site:
 
-## Deploy on Vercel
+| Feature                      | Location                                      | Notes                                                                                                                      |
+| ---------------------------- | --------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| **Projects page**            | `src/app/projects/page.tsx`                   | Page exists but removed from Header and Footer navigation. Route `/projects` still accessible directly.                    |
+| **Testimonials section**     | `src/app/page.tsx` (`Testimonials` component) | Component exists in the file but removed from the Home page render. 4 client testimonials with auto-rotating carousel.     |
+| **Theme toggle (dark mode)** | `src/components/ThemeToggle.tsx`              | Component exists but removed from Header. Theme is forced to light mode via `forcedTheme="light"` in `src/app/layout.tsx`. |
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Tech Stack
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Framework**: Next.js (App Router)
+- **Styling**: Tailwind CSS
+- **Animations**: Framer Motion
+- **UI Components**: Custom components based on Radix UI primitives
+- **Fonts**: General Sans, Cabinet Grotesk (local)
+- **Package Manager**: pnpm
+
+## Project Structure
+
+```
+src/
+├── app/
+│   ├── page.tsx              # Home page
+│   ├── about/page.tsx        # About page
+│   ├── services/page.tsx     # Services listing
+│   ├── services/[slug]/      # Individual service pages
+│   ├── contact/page.tsx      # Contact page
+│   ├── projects/page.tsx     # Projects page (disabled)
+│   └── layout.tsx            # Root layout
+├── components/
+│   ├── Header.tsx            # Navigation with services dropdown
+│   ├── Footer.tsx            # Site footer
+│   ├── ThemeToggle.tsx       # Dark mode toggle (disabled)
+│   └── ui/                   # Reusable UI components
+├── data/
+│   ├── services.ts           # Services data
+│   └── projects.ts           # Projects data (disabled)
+└── public/
+    └── images/               # Local images (WebP optimised)
+```

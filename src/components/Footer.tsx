@@ -8,7 +8,6 @@ const quickLinks = [
   { name: "Home", href: "/" },
   { name: "Services", href: "/services" },
   { name: "About", href: "/about" },
-  { name: "Projects", href: "/projects" },
   { name: "Contact", href: "/contact" },
 ]
 
@@ -89,12 +88,7 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a
-                  href="tel:+441234567890"
-                  className="hover:text-fo-green transition-colors duration-200"
-                >
-                  +44 (0) 1234 567 890
-                </a>
+                <a href="tel:+447899860529">+44 (0) 7899 860 529</a>
               </li>
               <li>United Kingdom</li>
             </ul>
