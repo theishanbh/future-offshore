@@ -95,17 +95,21 @@ export default function AboutPage() {
                 Who We Are
               </h2>
               <p className="text-muted-foreground text-lg leading-relaxed">
-                Future Offshore is established to provide a personalised,
-                flexible and innovation driven service to customers. We want to
-                work closely with clients, move faster, and deliver solutions
-                tailored precisely for their needs, without the limitations and
-                layers that come with the bigger corporate structure. Future
-                Offshore allows us to combine our experience with a more hands
-                on, collaborative approach, ensuring clients receive the
-                attention, transparency and quality they deserve. Above all,
-                we&apos;re committed to going above and beyond on every project,
-                delivering work that not only meets expectations but exceeds
-                them.
+                Future Offshore exists to do things differently. We deliver a
+                personalised, flexible, and innovation-driven service - working
+                closely with our clients to move faster and create solutions
+                tailored exactly to their needs. Without the layers of larger
+                organisations, we stay agile, responsive, and focused on what
+                matters most.
+              </p>
+              <p className="text-muted-foreground mt-4 text-lg leading-relaxed">
+                Our approach is hands-on and collaborative. We bring experience,
+                clarity, and transparency to every project, ensuring our clients
+                always feel informed, supported, and confident in the outcome.
+              </p>
+              <p className="text-muted-foreground mt-4 text-lg leading-relaxed">
+                At Future Offshore, we don&apos;t just meet expectations - we
+                push beyond them.
               </p>
             </motion.div>
             <motion.div variants={fadeInUp}>

@@ -121,12 +121,12 @@ function AboutIntro() {
             Engineering Excellence, Delivered Personally
           </h2>
           <p className="text-muted-foreground mb-6 leading-relaxed">
-            Future Offshore is established to provide a personalised, flexible
-            and innovation driven service to customers. We want to work closely
-            with clients, move faster, and deliver solutions tailored precisely
-            for their needs. With over 20 years of offshore engineering
-            experience, our team brings deep technical expertise across pipelay,
-            cable lay, subsea systems, project management, and consulting.
+            Future Offshore exists to do things differently. We deliver a
+            personalised, flexible, and innovation-driven service - working
+            closely with our clients to move faster and create solutions
+            tailored exactly to their needs. Without the layers of larger
+            organisations, we stay agile, responsive, and focused on what
+            matters most.
           </p>
           <Button
             size="pill"
