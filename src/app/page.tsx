@@ -222,28 +222,28 @@ const services = [
     description:
       "Client representation, project management, and quality oversight to safeguard your project interests.",
     icon: ClipboardList,
-    href: "/services",
+    href: "/services#project-support",
   },
   {
     title: "Technical Support",
     description:
       "Expert engineering for pipelay, cable lay, and subsea equipment systems.",
     icon: Wrench,
-    href: "/services",
+    href: "/services#technical-support",
   },
   {
     title: "Engineering Services",
     description:
       "From concept development to detailed design and operational engineering.",
     icon: Film,
-    href: "/services",
+    href: "/services/engineering-services",
   },
   {
     title: "Project Delivery",
     description:
       "20+ years delivering offshore projects through the full lifecycle.",
     icon: Rocket,
-    href: "/services",
+    href: "/services/project-delivery",
   },
 ]
 
