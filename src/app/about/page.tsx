@@ -416,7 +416,7 @@ export default function AboutPage() {
                   items: [
                     "Rigorous design verification and review processes",
                     "Adherence to international codes and standards",
-                    "Independent quality oversight on all deliverables",
+                    "Client engagement through design reviews encouraged",
                   ],
                 },
                 {
