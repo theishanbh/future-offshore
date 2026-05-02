@@ -30,7 +30,7 @@ export async function POST(request: NextRequest) {
 
     await transporter.sendMail({
       from: env.SMTP_FROM,
-      to: env.SMTP_TO,
+      to: env.NEXT_PUBLIC_CONTACT_EMAIL,
       subject: `New Enquiry: ${subject || "General Enquiry"} from ${firstName} ${lastName}`,
       html: `
         <h2>New Website Enquiry</h2>

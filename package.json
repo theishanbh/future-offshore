@@ -4,12 +4,15 @@
   "private": true,
   "scripts": {
     "build": "SKIP_ENV_VALIDATION=1 next build",
-    "deploy": "SKIP_ENV_VALIDATION=1 opennextjs-cloudflare build && opennextjs-cloudflare deploy",
+    "deploy:prod": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
+    "deploy:prod:local": "infisical run --env=ci-prod -- pnpm run deploy:prod",
+    "deploy:staging": "opennextjs-cloudflare build && opennextjs-cloudflare deploy --env staging",
+    "deploy:staging:local": "infisical run --env=ci-staging -- pnpm run deploy:staging",
     "dev": "infisical run --env=dev -- next dev",
     "format:check": "prettier --check .",
     "format:write": "prettier --write .",
     "lint": "eslint",
-    "preview": "SKIP_ENV_VALIDATION=1 opennextjs-cloudflare build && infisical export --env=dev --format=dotenv > .dev.vars && opennextjs-cloudflare preview",
+    "preview": "infisical run --env=dev -- opennextjs-cloudflare build && infisical run --env=dev -- opennextjs-cloudflare preview",
     "start": "next start"
   },
   "dependencies": {

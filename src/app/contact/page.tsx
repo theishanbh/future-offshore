@@ -14,6 +14,7 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import { Textarea } from "@/components/ui/textarea"
+import { env } from "@/env"
 import { motion } from "framer-motion"
 import {
   AlertCircle,
@@ -259,10 +260,10 @@ export default function ContactPage() {
                   <div>
                     <p className="text-sm text-gray-400">Email</p>
                     <a
-                      href="mailto:info@futureoffshore.co.uk"
+                      href={`mailto:${env.NEXT_PUBLIC_CONTACT_EMAIL}`}
                       className="hover:text-fo-green transition-colors"
                     >
-                      info@futureoffshore.co.uk
+                      {env.NEXT_PUBLIC_CONTACT_EMAIL}
                     </a>
                   </div>
                 </div>

@@ -14,7 +14,7 @@ const categories = [
   "All",
   "Pipelay Equipment",
   "Cable Lay Equipment",
-  "Subsea Tools",
+  "Subsea Trenchers",
   "Project Support",
   "Quality Management",
 ]

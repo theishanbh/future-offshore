@@ -174,16 +174,26 @@ function AboutIntro() {
             Who We Are
           </p>
           <h2 className="text-primary mb-6 text-3xl leading-tight font-black sm:text-4xl">
-            Engineering Excellence, Delivered Personally
+            Future Offshore Exists to Do Things Differently
           </h2>
-          <p className="text-muted-foreground mb-6 leading-relaxed">
-            Future Offshore is established to provide a personalised, flexible
-            and innovation driven service to customers. We want to work closely
-            with clients, move faster, and deliver solutions tailored precisely
-            for their needs. With over 20 years of offshore engineering
-            experience, our team brings deep technical expertise across pipelay,
-            cable lay, subsea systems, project management, and consulting.
-          </p>
+          <div className="text-muted-foreground mb-6 space-y-4 leading-relaxed">
+            <p>
+              We deliver a personalised, flexible, and innovation-driven service
+              - working closely with our clients to move faster and create
+              solutions tailored exactly to their needs. Without the layers of
+              larger organisations, we stay agile, responsive, and focused on
+              what matters most.
+            </p>
+            <p>
+              Our approach is hands-on and collaborative. We bring experience,
+              clarity, and transparency to every project, ensuring our clients
+              always feel informed, supported, and confident in the outcome.
+            </p>
+            <p>
+              At Future Offshore, we don&apos;t just meet expectations - we push
+              beyond them.
+            </p>
+          </div>
           <Button
             size="pill"
             nativeButton={false}
@@ -212,28 +222,28 @@ const services = [
     description:
       "Client representation, project management, and quality oversight to safeguard your project interests.",
     icon: ClipboardList,
-    href: "/services",
+    href: "/services#project-support",
   },
   {
     title: "Technical Support",
     description:
       "Expert engineering for pipelay, cable lay, and subsea equipment systems.",
     icon: Wrench,
-    href: "/services",
+    href: "/services#technical-support",
   },
   {
     title: "Engineering Services",
     description:
       "From concept development to detailed design and operational engineering.",
     icon: Film,
-    href: "/services",
+    href: "/services/engineering-services",
   },
   {
     title: "Project Delivery",
     description:
       "20+ years delivering offshore projects through the full lifecycle.",
     icon: Rocket,
-    href: "/services",
+    href: "/services/project-delivery",
   },
 ]
 

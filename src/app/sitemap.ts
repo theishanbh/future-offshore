@@ -43,7 +43,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "engineering-services",
     "pipelay-equipment",
     "cable-lay-equipment",
-    "subsea-tools",
+    "subsea-trenchers",
     "project-delivery",
   ]
 
