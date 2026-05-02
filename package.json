@@ -5,11 +5,13 @@
   "scripts": {
     "build": "SKIP_ENV_VALIDATION=1 next build",
     "deploy": "SKIP_ENV_VALIDATION=1 opennextjs-cloudflare build && opennextjs-cloudflare deploy",
+    "deploy:staging": "SKIP_ENV_VALIDATION=1 opennextjs-cloudflare build && opennextjs-cloudflare deploy --env staging",
     "dev": "infisical run --env=dev -- next dev",
     "format:check": "prettier --check .",
     "format:write": "prettier --write .",
     "lint": "eslint",
     "preview": "SKIP_ENV_VALIDATION=1 opennextjs-cloudflare build && infisical export --env=dev --format=dotenv > .dev.vars && opennextjs-cloudflare preview",
+    "preview:staging": "SKIP_ENV_VALIDATION=1 opennextjs-cloudflare build && infisical export --env=staging --format=dotenv > .dev.vars && opennextjs-cloudflare preview --env staging",
     "start": "next start"
   },
   "dependencies": {

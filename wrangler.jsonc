@@ -8,6 +8,11 @@
     "directory": ".open-next/assets",
     "binding": "ASSETS",
   },
+  "env": {
+    "staging": {
+      "name": "future-offshore-staging",
+    },
+  },
   "observability": {
     "enabled": false,
     "head_sampling_rate": 1,
