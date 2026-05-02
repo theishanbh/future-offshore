@@ -127,19 +127,16 @@ export const services: Service[] = [
     imagePosition: "bottom",
   },
   {
-    slug: "subsea-tools",
-    title: "Subsea Tools",
+    slug: "subsea-trenchers",
+    title: "Subsea Trenchers",
     category: "technical-support",
     categoryLabel: "Technical Support",
     shortDescription:
       "Industry-leading engineering of subsea equipment and trenching vehicles.",
     fullDescription:
-      "Future Offshore delivers industry-leading engineering for subsea equipment and trenching vehicles. Our team has developed innovative solutions for subsea intervention, trenching, and installation tooling used by major offshore contractors worldwide. We combine cutting-edge analysis techniques with practical operational knowledge to create equipment that performs reliably in the most demanding subsea environments.",
+      "Our team has developed innovative solutions for subsea intervention, trenching, and installation tooling used by major offshore contractors worldwide including development and delivery of the 4 track self-levelling Hi-Traq system developed at Royal IHC ltd.",
     features: [
       "Trencher design and engineering",
-      "Subsea intervention tooling",
-      "ROV tooling and systems",
-      "Subsea installation aids",
       "Equipment qualification testing",
       "Operational procedure development",
     ],
