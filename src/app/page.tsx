@@ -118,15 +118,18 @@ function AboutIntro() {
             Who We Are
           </p>
           <h2 className="text-primary mb-6 text-3xl leading-tight font-black sm:text-4xl">
-            Engineering Excellence, Delivered Personally
+            Future Offshore exists to do things differently
           </h2>
           <p className="text-muted-foreground mb-6 leading-relaxed">
-            Future Offshore exists to do things differently. We deliver a
-            personalised, flexible, and innovation-driven service - working
-            closely with our clients to move faster and create solutions
+            We deliver a personalised, flexible, and innovation-driven service -
+            working closely with our clients to move faster and create solutions
             tailored exactly to their needs. Without the layers of larger
             organisations, we stay agile, responsive, and focused on what
-            matters most.
+            matters most. Our approach is hands-on and collaborative. We bring
+            experience, clarity, and transparency to every project, ensuring our
+            clients always feel informed, supported, and confident in the
+            outcome. At Future Offshore, we don’t just meet expectations - we
+            push beyond them.
           </p>
           <Button
             size="pill"
