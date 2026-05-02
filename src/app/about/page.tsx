@@ -420,11 +420,11 @@ export default function AboutPage() {
                   ],
                 },
                 {
-                  title: "Health & Safety",
+                  title: "Safety",
                   icon: CheckCircle,
                   items: [
                     "Safety-first culture embedded in every project phase",
-                    "Risk assessment and mitigation planning",
+                    "FMEAs and functional safety reviews",
                     "Compliance with industry HSEQ frameworks",
                   ],
                 },
