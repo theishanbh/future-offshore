@@ -1,7 +1,6 @@
 "use client"
 
 import AnimatedSection from "@/components/AnimatedSection"
-import { env } from "@/env"
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
@@ -15,6 +14,7 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import { Textarea } from "@/components/ui/textarea"
+import { env } from "@/env"
 import { motion } from "framer-motion"
 import {
   AlertCircle,
