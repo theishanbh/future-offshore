@@ -429,12 +429,12 @@ export default function AboutPage() {
                   ],
                 },
                 {
-                  title: "Client Standards",
+                  title: "Project Management",
                   icon: BadgeCheck,
                   items: [
                     "Transparent reporting and communication",
                     "On-time, on-budget project delivery",
-                    "Continuous improvement and lessons learned",
+                    "Continuous improvement, lessons learned, risk assessment and mitigation included in every project",
                   ],
                 },
               ].map((card) => (
