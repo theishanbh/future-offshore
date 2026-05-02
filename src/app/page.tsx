@@ -156,24 +156,28 @@ const services = [
     description:
       "Client representation, project management, and quality oversight to safeguard your project interests.",
     icon: ClipboardList,
+    href: "/services/client-representation",
   },
   {
     title: "Technical Support",
     description:
       "Expert engineering for pipelay, cable lay, and subsea equipment systems.",
     icon: Wrench,
+    href: "/services/pipelay-equipment",
   },
   {
     title: "Engineering Services",
     description:
       "From concept development to detailed design and operational engineering.",
     icon: Film,
+    href: "/services/engineering-services",
   },
   {
     title: "Project Delivery",
     description:
       "20+ years delivering offshore projects through the full lifecycle.",
     icon: Rocket,
+    href: "/services/project-delivery",
   },
 ]
 
@@ -215,7 +219,7 @@ function ServicesOverview() {
                   <Button
                     variant="link"
                     nativeButton={false}
-                    render={<Link href="/services" />}
+                    render={<Link href={s.href} />}
                   >
                     Learn More &rarr;
                   </Button>
