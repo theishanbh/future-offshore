@@ -1,3 +1,4 @@
+import { env } from "@/env"
 import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
 import { Mail } from "lucide-react"
@@ -81,10 +82,10 @@ export default function Footer() {
             <ul className="space-y-3 text-sm text-white/70">
               <li>
                 <a
-                  href="mailto:info@futureoffshore.co.uk"
+                  href={`mailto:${env.NEXT_PUBLIC_CONTACT_EMAIL}`}
                   className="hover:text-fo-green transition-colors duration-200"
                 >
-                  info@futureoffshore.co.uk
+                  {env.NEXT_PUBLIC_CONTACT_EMAIL}
                 </a>
               </li>
               <li>
@@ -138,7 +139,7 @@ export default function Footer() {
             className="hover:text-fo-green text-white/50 hover:bg-white/10"
             nativeButton={false}
             render={
-              <a href="mailto:info@futureoffshore.co.uk" aria-label="Email" />
+              <a href={`mailto:${env.NEXT_PUBLIC_CONTACT_EMAIL}`} aria-label="Email" />
             }
           >
             <Mail className="size-5" />
