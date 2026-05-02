@@ -138,21 +138,23 @@ export default function AboutPage() {
                 Who We Are
               </h2>
               <div className="text-muted-foreground space-y-4 text-lg leading-relaxed">
+                <p>Future Offshore exists to do things differently.</p>
                 <p>
-                  Future Offshore is established to provide a personalised,
-                  flexible and innovation driven service to customers. We want
-                  to work closely with clients, move faster, and deliver
-                  solutions tailored precisely for their needs, without the
-                  limitations and layers that come with the bigger corporate
-                  structure.
+                  We deliver a personalised, flexible, and innovation-driven
+                  service - working closely with our clients to move faster and
+                  create solutions tailored exactly to their needs. Without the
+                  layers of larger organisations, we stay agile, responsive, and
+                  focused on what matters most.
                 </p>
                 <p>
-                  Future Offshore allows us to combine our experience with a
-                  more hands on, collaborative approach, ensuring clients
-                  receive the attention, transparency and quality they deserve.
-                  Above all, we&apos;re committed to going above and beyond on
-                  every project, delivering work that not only meets
-                  expectations but exceeds them.
+                  Our approach is hands-on and collaborative. We bring
+                  experience, clarity, and transparency to every project,
+                  ensuring our clients always feel informed, supported, and
+                  confident in the outcome.
+                </p>
+                <p>
+                  At Future Offshore, we don&apos;t just meet expectations - we
+                  push beyond them.
                 </p>
               </div>
             </motion.div>
