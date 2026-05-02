@@ -50,7 +50,7 @@ export const projects: Project[] = [
     slug: "subsea-trencher-engineering",
     title: "Subsea Trencher Engineering",
     client: "Subsea Services Provider",
-    category: "Subsea Tools",
+    category: "Subsea Trenchers",
     year: "2022",
     description:
       "Technical lead for the engineering of a next-generation subsea trenching vehicle, incorporating innovative design methods for improved performance and reliability in challenging seabed conditions.",

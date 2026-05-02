@@ -8,8 +8,12 @@ export const env = createEnv({
     SMTP_USER: z.string().min(1),
     SMTP_PASS: z.string().min(1),
     SMTP_FROM: z.string().min(1),
-    SMTP_TO: z.string().min(1),
+  },
+  client: {
+    NEXT_PUBLIC_CONTACT_EMAIL: z.string().email(),
   },
   skipValidation: !!process.env.SKIP_ENV_VALIDATION,
-  experimental__runtimeEnv: {},
+  experimental__runtimeEnv: {
+    NEXT_PUBLIC_CONTACT_EMAIL: process.env.NEXT_PUBLIC_CONTACT_EMAIL,
+  },
 })

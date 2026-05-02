@@ -1,6 +1,7 @@
 "use client"
 
 import AnimatedSection from "@/components/AnimatedSection"
+import { env } from "@/env"
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
@@ -259,10 +260,10 @@ export default function ContactPage() {
                   <div>
                     <p className="text-sm text-gray-400">Email</p>
                     <a
-                      href="mailto:info@futureoffshore.co.uk"
+                      href={`mailto:${env.NEXT_PUBLIC_CONTACT_EMAIL}`}
                       className="hover:text-fo-green transition-colors"
                     >
-                      info@futureoffshore.co.uk
+                      {env.NEXT_PUBLIC_CONTACT_EMAIL}
                     </a>
                   </div>
                 </div>

@@ -81,6 +81,7 @@ function CategorySection({
 
   return (
     <motion.section
+      id={category}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
