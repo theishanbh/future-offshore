@@ -82,10 +82,10 @@ export default function Footer() {
             <ul className="space-y-2 text-sm text-white/70">
               <li>
                 <a
-                  href="mailto:info@futureoffshore.co.uk"
+                  href="mailto:info@future-offshore.com"
                   className="hover:text-fo-green transition-colors duration-200"
                 >
-                  info@futureoffshore.co.uk
+                  info@future-offshore.com
                 </a>
               </li>
               <li>
@@ -136,7 +136,7 @@ export default function Footer() {
             className="hover:text-fo-green text-white/50 hover:bg-white/10"
             nativeButton={false}
             render={
-              <a href="mailto:info@futureoffshore.co.uk" aria-label="Email" />
+              <a href="mailto:info@future-offshore.com" aria-label="Email" />
             }
           >
             <Mail className="size-5" />

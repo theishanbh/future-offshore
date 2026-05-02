@@ -259,10 +259,10 @@ export default function ContactPage() {
                   <div>
                     <p className="text-sm text-gray-400">Email</p>
                     <a
-                      href="mailto:info@futureoffshore.co.uk"
+                      href="mailto:info@future-offshore.com"
                       className="hover:text-fo-green transition-colors"
                     >
-                      info@futureoffshore.co.uk
+                      info@future-offshore.com
                     </a>
                   </div>
                 </div>
