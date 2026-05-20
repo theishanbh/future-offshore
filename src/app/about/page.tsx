@@ -27,14 +27,14 @@ const team = [
   {
     name: "Mike Smith",
     role: "Technical Director",
-    photo: "/images/team/mike.webp",
+    photo: "/images/team/mike123.jpeg",
     description:
       "With over 20 years of offshore engineering experience, Mike leads the technical direction of Future Offshore, bringing deep expertise in pipelay systems, structural analysis, and equipment design. His career includes leading the design, delivery, and commissioning of some of the most advanced pipelay and subsea systems in operation today.",
   },
   {
     name: "Charlotte Chapman",
     role: "Projects Director",
-    photo: "/images/team/charlotte.webp",
+    photo: "/images/team/charlotte.jpeg",
     description:
       "Charlotte drives project delivery excellence at Future Offshore, ensuring clients receive transparent communication, quality outcomes, and on-time delivery across all engagements. With extensive experience in offshore project management and client representation, she brings a meticulous and collaborative approach to every project.",
   },
