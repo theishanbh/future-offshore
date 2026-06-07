@@ -12,11 +12,12 @@ const quickLinks = [
   { name: "Contact", href: "/contact" },
 ]
 
-const services = [
-  "Project Support",
-  "Technical Support",
-  "Engineering Services",
-  "Quality Management",
+const footerServices = [
+  { name: "Pipelay Equipment", href: "/services/pipelay-equipment" },
+  { name: "Cable Lay Equipment", href: "/services/cable-lay-equipment" },
+  { name: "Subsea Trenchers", href: "/services/subsea-trenchers" },
+  { name: "Engineering Services", href: "/services/engineering-services" },
+  { name: "Quality Management", href: "/services/quality-management" },
 ]
 
 export default function Footer() {
@@ -66,9 +67,14 @@ export default function Footer() {
               Services
             </h4>
             <ul className="space-y-3">
-              {services.map((service) => (
-                <li key={service}>
-                  <span className="text-sm text-white/70">{service}</span>
+              {footerServices.map((service) => (
+                <li key={service.href}>
+                  <Link
+                    href={service.href}
+                    className="hover:text-fo-green text-sm text-white/70 transition-colors duration-200"
+                  >
+                    {service.name}
+                  </Link>
                 </li>
               ))}
             </ul>

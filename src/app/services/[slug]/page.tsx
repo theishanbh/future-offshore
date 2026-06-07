@@ -1,5 +1,7 @@
+import { BreadcrumbSchema, ServiceSchema } from "@/components/StructuredData"
 import { getServiceBySlug, services } from "@/data/services"
 import type { Metadata } from "next"
+import Image from "next/image"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 
@@ -16,8 +18,16 @@ export async function generateMetadata({
   const service = getServiceBySlug(slug)
   if (!service) return { title: "Service Not Found" }
   return {
-    title: `${service.title} | Future Offshore`,
+    title: service.title,
     description: service.shortDescription,
+    alternates: {
+      canonical: `/services/${slug}`,
+    },
+    openGraph: {
+      title: `${service.title} - Future Offshore`,
+      description: service.shortDescription,
+      url: `/services/${slug}`,
+    },
   }
 }
 
@@ -35,7 +45,19 @@ export default async function ServicePage({
     .slice(0, 3)
 
   return (
-    <>
+    <main>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", href: "/" },
+          { name: "Services", href: "/services" },
+          { name: service.title, href: `/services/${slug}` },
+        ]}
+      />
+      <ServiceSchema
+        name={service.title}
+        description={service.shortDescription}
+        url={`/services/${slug}`}
+      />
       {/* Hero */}
       <section className="bg-navy pt-32 pb-16 md:pt-40 md:pb-24">
         <div className="mx-auto max-w-7xl px-4">
@@ -100,11 +122,15 @@ export default async function ServicePage({
 
             {/* Right: Image + CTA */}
             <div className="space-y-8">
-              <img
-                src={service.image}
-                alt={service.title}
-                className={`h-64 w-full rounded-xl object-cover shadow-lg ${service.imagePosition ? `object-${service.imagePosition}` : ""}`}
-              />
+              <div className="relative h-64 w-full overflow-hidden rounded-xl shadow-lg">
+                <Image
+                  src={service.image}
+                  alt={`${service.title} - Future Offshore offshore engineering service`}
+                  fill
+                  className={`object-cover ${service.imagePosition ? `object-${service.imagePosition}` : ""}`}
+                  sizes="(max-width: 1024px) 100vw, 33vw"
+                />
+              </div>
               <div className="bg-navy rounded-xl p-8 text-white">
                 <h3 className="mb-3 text-xl font-black">Get in Touch</h3>
                 <p className="mb-6 text-sm leading-relaxed text-gray-300">
@@ -138,11 +164,15 @@ export default async function ServicePage({
               >
                 <div className="bg-card overflow-hidden rounded-xl shadow-lg transition-shadow duration-300 hover:shadow-xl">
                   <div className="gradient-bg h-[3px]" />
-                  <img
-                    src={s.image}
-                    alt={s.title}
-                    className="h-40 w-full object-cover"
-                  />
+                  <div className="relative h-40 w-full">
+                    <Image
+                      src={s.image}
+                      alt={`${s.title} - Future Offshore`}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                    />
+                  </div>
                   <div className="p-5">
                     <span className="text-fo-green text-xs font-semibold tracking-wider uppercase">
                       {s.categoryLabel}
@@ -160,6 +190,6 @@ export default async function ServicePage({
           </div>
         </div>
       </section>
-    </>
+    </main>
   )
 }
