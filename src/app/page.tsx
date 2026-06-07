@@ -13,6 +13,7 @@ import {
   Users,
   Wrench,
 } from "lucide-react"
+import Image from "next/image"
 import Link from "next/link"
 import { useCallback, useEffect, useState } from "react"
 
@@ -34,23 +35,23 @@ function stagger(delay: number) {
 const heroImages = [
   {
     src: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1920&q=80",
-    alt: "Deep blue ocean stretching to the horizon",
+    alt: "Deep blue ocean - Future Offshore engineering environment",
   },
   {
     src: "https://images.unsplash.com/photo-1559825481-12a05cc00344?auto=format&fit=crop&w=1920&q=80",
-    alt: "Ocean waves at sunset",
+    alt: "Ocean waves - offshore pipelay and subsea engineering",
   },
   {
     src: "https://images.unsplash.com/photo-1530177150700-84cd9a3b059b?auto=format&fit=crop&w=1920&q=80",
-    alt: "Cargo ship on open sea",
+    alt: "Cargo ship on open sea - offshore project delivery",
   },
   {
     src: "https://images.unsplash.com/photo-1605745341112-85968b19335b?auto=format&fit=crop&w=1920&q=80",
-    alt: "Offshore engineering vessel",
+    alt: "Offshore engineering vessel - cable lay and pipelay systems",
   },
   {
     src: "https://images.unsplash.com/photo-1513553404607-988bf2703777?auto=format&fit=crop&w=1920&q=80",
-    alt: "Ship at sea during golden hour",
+    alt: "Ship at sea - Future Offshore technical support and engineering",
   },
 ]
 
@@ -204,9 +205,11 @@ function AboutIntro() {
         </motion.div>
 
         <motion.div {...fadeInUp} transition={{ duration: 0.6, delay: 0.2 }}>
-          <img
+          <Image
             src="/images/alan-arseven.webp"
-            alt="Offshore vessel at sea"
+            alt="Offshore engineering vessel at sea - Future Offshore project delivery"
+            width={800}
+            height={600}
             className="h-auto w-full rounded-2xl object-cover shadow-lg"
           />
         </motion.div>
@@ -534,10 +537,12 @@ function CTABanner() {
   return (
     <section className="relative isolate overflow-hidden py-28 sm:py-32">
       {/* Background image */}
-      <img
+      <Image
         src="https://images.unsplash.com/photo-1559825481-12a05cc00344?auto=format&fit=crop&w=1920&q=80"
         alt=""
-        className="absolute inset-0 -z-20 h-full w-full object-cover"
+        fill
+        className="-z-20 object-cover"
+        aria-hidden="true"
       />
       <div className="bg-navy/80 absolute inset-0 -z-10" />
 
@@ -586,9 +591,11 @@ function CTABanner() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="hidden lg:block"
           >
-            <img
+            <Image
               src="/images/fo-hardhat.webp"
-              alt="Future Offshore hardhat"
+              alt="Future Offshore branded hardhat - 40+ years of offshore engineering expertise"
+              width={384}
+              height={384}
               className="mx-auto max-w-sm rounded-2xl object-cover shadow-2xl"
             />
           </motion.div>

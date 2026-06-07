@@ -10,6 +10,7 @@ import {
   Shield,
   Users,
 } from "lucide-react"
+import Image from "next/image"
 import Link from "next/link"
 
 const fadeInUp = {
@@ -83,13 +84,15 @@ const whyUs = [
 
 export default function AboutPage() {
   return (
-    <>
+    <main>
       {/* ── 1. Hero: Full-bleed image ── */}
       <section className="relative flex min-h-[60vh] items-center justify-center overflow-hidden">
-        <img
+        <Image
           src="https://images.unsplash.com/photo-1559825481-12a05cc00344?auto=format&fit=crop&w=1920&q=80"
-          alt="Ocean"
-          className="absolute inset-0 h-full w-full object-cover"
+          alt="Deep blue ocean - Future Offshore engineering environment"
+          fill
+          className="object-cover"
+          priority
         />
         <div className="bg-navy/60 absolute inset-0" />
         <div className="relative z-10 mx-auto max-w-7xl px-4 text-center">
@@ -159,11 +162,15 @@ export default function AboutPage() {
               </div>
             </motion.div>
             <motion.div variants={fadeInUp}>
-              <img
-                src="/images/iyan-ryan.webp"
-                alt="Offshore vessel at sea"
-                className="h-72 w-full rounded-xl object-cover shadow-lg lg:h-[500px]"
-              />
+              <div className="relative h-72 w-full overflow-hidden rounded-xl shadow-lg lg:h-[500px]">
+                <Image
+                  src="/images/iyan-ryan.webp"
+                  alt="Offshore engineering vessel at sea - Future Offshore capabilities"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 33vw"
+                />
+              </div>
             </motion.div>
           </motion.div>
         </div>
@@ -171,10 +178,11 @@ export default function AboutPage() {
 
       {/* ── 3. Quote Section: Full-width image with pull-quote ── */}
       <section className="relative flex min-h-[50vh] items-center overflow-hidden">
-        <img
+        <Image
           src="https://images.unsplash.com/photo-1530177150700-84cd9a3b059b?auto=format&fit=crop&w=1920&q=80"
-          alt="Offshore vessel at sea"
-          className="absolute inset-0 h-full w-full object-cover"
+          alt="Offshore pipelay vessel operating at sea - Future Offshore expertise"
+          fill
+          className="object-cover"
         />
         <div className="bg-navy/70 absolute inset-0" />
         <div className="relative z-10 mx-auto max-w-5xl px-6 py-20">
@@ -206,9 +214,11 @@ export default function AboutPage() {
             className="grid grid-cols-1 items-center gap-16 lg:grid-cols-2"
           >
             <motion.div variants={fadeInUp}>
-              <img
+              <Image
                 src="/images/fo-porthole.webp"
-                alt="View through a ship porthole"
+                alt="Ship porthole view - Future Offshore mission and maritime heritage"
+                width={800}
+                height={600}
                 className="w-full rounded-xl object-cover shadow-lg"
               />
             </motion.div>
@@ -265,11 +275,15 @@ export default function AboutPage() {
               </div>
             </motion.div>
             <motion.div variants={fadeInUp}>
-              <img
-                src="https://images.unsplash.com/photo-1566024287286-457247b70310?auto=format&fit=crop&w=800&q=80"
-                alt="Offshore equipment"
-                className="h-[500px] w-full rounded-xl object-cover shadow-lg"
-              />
+              <div className="relative h-72 w-full overflow-hidden rounded-xl shadow-lg lg:h-[500px]">
+                <Image
+                  src="https://images.unsplash.com/photo-1566024287286-457247b70310?auto=format&fit=crop&w=800&q=80"
+                  alt="Subsea and offshore engineering equipment - Future Offshore experience"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 33vw"
+                />
+              </div>
             </motion.div>
           </motion.div>
         </div>
@@ -307,11 +321,13 @@ export default function AboutPage() {
                 >
                   <div className="group h-full">
                     {/* Rectangular photo */}
-                    <div className="relative mb-6 overflow-hidden rounded-xl">
-                      <img
+                    <div className="relative mb-6 aspect-[5/4] overflow-hidden rounded-xl">
+                      <Image
                         src={member.photo}
-                        alt={member.name}
-                        className="aspect-[5/4] w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                        alt={`${member.name} - ${member.role} at Future Offshore`}
+                        fill
+                        className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                        sizes="(max-width: 768px) 100vw, 50vw"
                       />
                     </div>
                     <h3 className="text-primary mb-1 text-2xl font-black">
@@ -360,10 +376,12 @@ export default function AboutPage() {
                   <div className="flex h-full flex-col overflow-hidden rounded-xl">
                     {/* Card image */}
                     <div className="relative h-52 shrink-0 overflow-hidden">
-                      <img
+                      <Image
                         src={value.image}
-                        alt={value.title}
-                        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        alt={`${value.title} - Future Offshore core value`}
+                        fill
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                        sizes="(max-width: 768px) 100vw, 33vw"
                       />
                     </div>
                     {/* Content box */}
@@ -490,9 +508,11 @@ export default function AboutPage() {
               </ul>
             </motion.div>
             <motion.div variants={fadeInUp}>
-              <img
+              <Image
                 src="/images/fo-hardhat.webp"
-                alt="Future Offshore hardhat"
+                alt="Future Offshore branded safety hardhat - commitment to quality and safety"
+                width={800}
+                height={600}
                 className="w-full rounded-xl object-cover shadow-lg"
               />
             </motion.div>
@@ -535,6 +555,6 @@ export default function AboutPage() {
           </motion.div>
         </div>
       </section>
-    </>
+    </main>
   )
 }

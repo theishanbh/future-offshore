@@ -1,9 +1,9 @@
 "use client"
 
-import { Button } from "@/components/ui/button"
 import { getServicesByCategory, services } from "@/data/services"
 import { motion } from "framer-motion"
 import { ArrowRight } from "lucide-react"
+import Image from "next/image"
 import Link from "next/link"
 
 const fadeInUp = {
@@ -24,10 +24,12 @@ function ServiceCard({ service }: { service: (typeof services)[0] }) {
         <div className="bg-card ring-foreground/10 flex h-full flex-col overflow-hidden rounded-xl ring-1 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl">
           {/* Image */}
           <div className="relative h-56 shrink-0 overflow-hidden">
-            <img
+            <Image
               src={service.image}
-              alt={service.title}
-              className={`h-full w-full object-cover transition-transform duration-500 group-hover:scale-105 ${service.imagePosition ? `object-${service.imagePosition}` : ""}`}
+              alt={`${service.title} - offshore engineering service by Future Offshore`}
+              fill
+              className={`object-cover transition-transform duration-500 group-hover:scale-105 ${service.imagePosition ? `object-${service.imagePosition}` : ""}`}
+              sizes="(max-width: 768px) 100vw, 50vw"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
             <div className="absolute right-0 bottom-0 left-0 p-5">
@@ -106,7 +108,7 @@ function CategorySection({
 
 export default function ServicesPage() {
   return (
-    <>
+    <main>
       {/* Hero */}
       <section className="bg-navy pt-36 pb-24 md:pt-44 md:pb-32">
         <div className="mx-auto max-w-7xl px-4 text-center">
@@ -141,6 +143,6 @@ export default function ServicesPage() {
           <CategorySection title="Project Support" category="project-support" />
         </div>
       </section>
-    </>
+    </main>
   )
 }
